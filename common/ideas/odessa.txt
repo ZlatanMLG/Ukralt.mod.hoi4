@@ -1,0 +1,176 @@
+ideas = {
+
+
+##    ##    ###    ######## ####  #######  ##    ##    ###    ##           ######  ########  #### ########  #### ########  ######  
+###   ##   ## ##      ##     ##  ##     ## ###   ##   ## ##   ##          ##    ## ##     ##  ##  ##     ##  ##     ##    ##    ## 
+####  ##  ##   ##     ##     ##  ##     ## ####  ##  ##   ##  ##          ##       ##     ##  ##  ##     ##  ##     ##    ##       
+## ## ## ##     ##    ##     ##  ##     ## ## ## ## ##     ## ##           ######  ########   ##  ########   ##     ##     ######  
+##  #### #########    ##     ##  ##     ## ##  #### ######### ##                ## ##         ##  ##   ##    ##     ##          ## 
+##   ### ##     ##    ##     ##  ##     ## ##   ### ##     ## ##          ##    ## ##         ##  ##    ##   ##     ##    ##    ## 
+##    ## ##     ##    ##    ####  #######  ##    ## ##     ## ########     ######  ##        #### ##     ## ####    ##     ######  
+
+	country = { #DLC
+		ODE_international_port = {
+			picture = generic_coastal_navy
+
+			allowed = { 
+				original_tag = ODE 
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				local_intel_to_enemies = 0.1
+				drift_defence_factor = -0.1
+				trade_opinion_factor = 0.2
+				opinion_gain_monthly_factor = 0.05
+				research_speed_factor = 0.04
+				consumer_goods_factor = 0.01		
+			}
+		}
+
+		ODE_shipping_tax = {
+			picture = generic_the_london_naval_treaty
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.02
+				production_factory_max_efficiency_factor = 0.02
+				consumer_goods_factor = -0.04
+				stability_factor = -0.05
+			}
+		}
+
+		ODE_debt_agreement = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				local_resources_factor = -0.3
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.1
+			}
+		}
+
+		ODE_mercenary_guard = {
+			picture = generic_army_problems
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				army_morale_factor = -0.1
+				army_org_factor = -0.25
+				war_support_factor = -0.15
+				conscription_factor = -0.75
+				conscription = 0.005
+			}
+		}
+
+		ODE_trade_fleet = {
+			picture = eng_a_change_in_course
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				naval_equipment_upgrade_xp_cost = 0.3
+				naval_manufacturer_cost_factor = 0.1
+				navy_chief_cost_factor = 0.2
+			}
+
+			equipment_bonus = {
+				convoy = {
+					build_cost_ic = -0.15 instant = yes
+				}
+			}
+
+			research_bonus = {
+				naval_equipment = -0.3
+				naval_doctrine = -0.8
+			}
+
+		}
+
+		ODE_industrial_priore = {
+			picture = generic_exploit_mines
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_infrastructure_factor = 0.15
+				production_speed_naval_base_factor = 0.2
+			}
+		}
+
+		ODE_military_priore = {
+			picture = man_five_year_plan_industry
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				production_speed_bunker_factor = 0.25
+				production_speed_coastal_bunker_factor = 0.25
+				production_speed_dockyard_factor = 0.1
+			}
+		}
+	}
+}

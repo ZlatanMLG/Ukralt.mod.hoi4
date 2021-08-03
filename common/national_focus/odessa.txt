@@ -1,0 +1,332 @@
+﻿# INDUSTRIAL
+focus_tree = {
+	id = odessa_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ODE
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = odessa_industrialize
+		icon = GFX_goal_generic_major_war
+		
+		x = 3
+		y = 0
+		# relative_position_id = AST_empower_the_workers
+
+		available = {
+			is_subject = no
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		# prerequisite = { focus = AST_workers_paradise }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 100
+			add_tech_bonus = {
+				name = odessa_industrialize_1
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+			country_event = { id = odessa.2 }
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = odessa_tax
+		icon = GFX_goal_generic_major_war
+		
+		x = 2
+		y = 4
+		relative_position_id = odessa_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_industrialize }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ODE_shipping_tax
+			country_event = { id = odessa.1 }
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = odessa_industrialize_1
+		icon = GFX_goal_generic_major_war
+		dynamic = yes
+		x = 3
+		y = 1
+		relative_position_id = odessa_industrialize
+
+		available = {
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
+		id = odessa_dockyard_1
+		icon = GFX_goal_generic_major_war
+		dynamic = yes
+		x = 0
+		y = 1
+		relative_position_id = odessa_industrialize_1
+
+		available = {
+			has_full_control_of_state = 192
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize_1 }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			192 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = odessa_dockyard_2
+		icon = GFX_goal_generic_major_war
+		dynamic = yes
+		x = 0
+		y = 1
+		relative_position_id = odessa_dockyard_1
+
+		available = {
+			has_full_control_of_state = 192
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_dockyard_1 }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			192 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = odessa_university
+		icon = GFX_goal_generic_major_war
+		x = 0
+		y = 1
+		relative_position_id = odessa_industrialize
+
+		available = {
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize }
+		mutually_exclusive = { focus = odessa_university_1 }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_research_slot = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = odessa_university_1
+		icon = GFX_goal_generic_major_war
+		x = -2
+		y = 1
+		relative_position_id = odessa_industrialize
+
+		available = {
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize }
+		mutually_exclusive = { focus = odessa_university }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+			}
+			add_research_slot = 1
+			add_stability = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+}		

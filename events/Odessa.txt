@@ -1,0 +1,58 @@
+﻿###########################
+# Bulgarian Events
+###########################
+
+add_namespace = odessa
+
+# We buy some finnish winter hats
+country_event = {
+	id = odessa.1
+	title = odessa.1.t
+	desc = odessa.1.d
+	picture = GFX_news_event_011
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.1.a
+		ai_chance = { factor = 90 }
+		ODE = { 
+			add_stability = 0.01
+		}
+	}
+
+	option = {
+		name = odessa.1.b
+		ai_chance = { factor = 10 }
+		ODE = {
+			add_stability = -0.01
+		}
+	}
+}
+
+
+# Gherman (Not German..) industrial decision
+country_event = {
+	id = odessa.2
+	title = odessa.2.t
+	desc = odessa.2.d
+	picture = GFX_report_event_hol_polderen
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.2.a
+		ai_chance = { factor = 50 }
+		ODE = {
+			add_ideas = ODE_industrial_priore
+		}
+	}
+
+	option = {
+		name = odessa.2.b
+		ai_chance = { factor = 50 }
+		ODE = {
+			add_ideas = ODE_military_priore
+		}
+	}
+}
