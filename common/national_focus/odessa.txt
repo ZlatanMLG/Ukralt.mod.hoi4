@@ -94,7 +94,6 @@ focus_tree = {
 
 		available = {
 			NOT = { is_in_faction_with = USA }
-			#NOT = { has_country_flag = britain_enforced_our_loyalty }
 		}
 
 		bypass = {
@@ -278,6 +277,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 			}
 			add_research_slot = 1
+			remove_ideas = ODE_uneducated_workers
 		}
 
 		ai_will_do = {

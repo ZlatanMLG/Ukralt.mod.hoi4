@@ -39,6 +39,7 @@ ideas = {
 			}
 		}
 
+
 		ODE_shipping_tax = {
 			picture = generic_the_london_naval_treaty
 
@@ -60,6 +61,7 @@ ideas = {
 			}
 		}
 
+
 		ODE_debt_agreement = {
 			picture = hol_the_foundations_of_defense
 
@@ -79,8 +81,9 @@ ideas = {
 			}
 		}
 
+
 		ODE_mercenary_guard = {
-			picture = generic_army_problems
+			picture = tur_disorganised_armed_forces
 
 			allowed = {
 				original_tag = ODE
@@ -99,6 +102,73 @@ ideas = {
 				conscription = 0.005
 			}
 		}
+
+
+		ODE_mercenary_guard_early_reformed = {
+			picture = MEX_politicised_army
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				army_morale_factor = -0.05
+				army_org_factor = -0.15
+				war_support_factor = -0.1
+				conscription_factor = -0.4
+				conscription = 0.007
+			}
+		}
+
+
+		ODE_mercenary_guard_reform_in_progress = {
+			picture = MEX_callistas
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				army_morale_factor = -0.02
+				army_org_factor = -0.05
+				war_support_factor = -0.05
+				conscription_factor = -0.2
+				conscription = 0.01
+			}
+		}
+
+
+		ODE_mercenary_guard_fully_reformed = {
+			picture = generic_war_preparation
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				army_morale_factor = 0.01
+				army_org_factor = 0.05
+				war_support_factor = 0.05
+				conscription_factor = 0.1
+				conscription = 0.015
+			}
+		}
+
 
 		ODE_trade_fleet = {
 			picture = eng_a_change_in_course
@@ -128,8 +198,8 @@ ideas = {
 				naval_equipment = -0.3
 				naval_doctrine = -0.8
 			}
-
 		}
+
 
 		ODE_industrial_priore = {
 			picture = generic_exploit_mines
@@ -151,6 +221,7 @@ ideas = {
 			}
 		}
 
+
 		ODE_military_priore = {
 			picture = man_five_year_plan_industry
 
@@ -170,6 +241,53 @@ ideas = {
 				production_speed_bunker_factor = 0.25
 				production_speed_coastal_bunker_factor = 0.25
 				production_speed_dockyard_factor = 0.1
+			}
+		}
+
+
+		ODE_romanian_influence = {
+			picture = ROM_preserve_greater_romania
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				join_faction_tension = 0.5
+				justify_war_goal_time = 0.25
+				max_command_power = -50
+				stability_weekly = -0.001
+				surrender_limit = -0.2
+				political_power_factor = -0.3
+			}
+		}
+
+
+		ODE_uneducated_workers = {
+			picture = SPR_subvert_soviet_control
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = -0.05
+				production_speed_buildings_factor = -0.2
+				industrial_capacity_factory = -0.1
+				production_factory_efficiency_gain_factor = -0.15
+				production_factory_max_efficiency_factor = -0.25
 			}
 		}
 	}
