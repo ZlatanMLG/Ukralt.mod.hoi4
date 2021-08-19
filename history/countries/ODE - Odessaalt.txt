@@ -65,6 +65,8 @@ add_ideas = {
 	ODE_debt_agreement
 	ODE_mercenary_guard
 	ODE_trade_fleet
+	ODE_romanian_influence
+	ODE_uneducated_workers
 }
 
 set_popularities = {
