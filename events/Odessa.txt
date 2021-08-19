@@ -1,4 +1,4 @@
-﻿###########################
+###########################
 # Bulgarian Events
 ###########################
 
@@ -37,7 +37,7 @@ country_event = {
 	title = odessa.2.t
 	desc = odessa.2.d
 	picture = GFX_report_event_hol_polderen
-	
+
 	is_triggered_only = yes
 	
 	option = {
@@ -51,6 +51,33 @@ country_event = {
 	option = {
 		name = odessa.2.b
 		ai_chance = { factor = 50 }
+		ODE = {
+			add_ideas = ODE_military_priore
+		}
+	}
+}
+
+
+# Naval reform
+country_event = {
+	id = odessa.3
+	title = odessa.3.t
+	desc = odessa.3.d
+	picture = GFX_report_event_usa_destroyers
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.3.a
+		ai_chance = { factor = 70 }
+		ODE = {
+			add_ideas = ODE_industrial_priore
+		}
+	}
+
+	option = {
+		name = odessa.3.b
+		ai_chance = { factor = 30 }
 		ODE = {
 			add_ideas = ODE_military_priore
 		}
