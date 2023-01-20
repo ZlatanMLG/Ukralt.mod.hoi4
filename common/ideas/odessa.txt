@@ -40,6 +40,26 @@ ideas = {
 		}
 
 
+		ODE_effective_administration = {
+			picture = generic_the_london_naval_treaty
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.1
+				compliance_growth = 0.05
+			}
+		}
+
+
 		ODE_shipping_tax = {
 			picture = generic_the_london_naval_treaty
 
@@ -62,6 +82,117 @@ ideas = {
 		}
 
 
+		ODE_railroad_improvements = {
+			picture = generic_build_infrastructure
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				stability_factor = 0.02
+			}
+		}
+
+
+		ODE_partnership_deal = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+
+		ODE_bessarabia_sold = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+
+		ODE_bessarabia_finally_sold = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.1
+			}
+		}
+
+
+		ODE_bessarabia_purchased = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.05
+			}
+		}
+
+
+		ODE_bessarabia_finally_purchased = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = -0.1
+			}
+		}
+
+
 		ODE_debt_agreement = {
 			picture = hol_the_foundations_of_defense
 
@@ -78,6 +209,67 @@ ideas = {
 				local_resources_factor = -0.3
 				consumer_goods_factor = 0.05
 				production_speed_buildings_factor = -0.1
+			}
+		}
+
+
+		ODE_paying_debt = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			modifier = {
+				local_resources_factor = -0.1
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.05
+			}
+		}
+
+
+		ODE_agriculture_reform = {
+			picture = generic_agrarian_reform
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = 0.3
+				production_speed_industrial_complex_factor = 0.1
+				conscription_factor = -0.05
+				stability_factor = 0.1
+			}
+		}
+
+
+		ODE_rom_war_preparations = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = ROM
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.1
 			}
 		}
 
@@ -269,6 +461,54 @@ ideas = {
 		}
 
 
+		ODE_romanian_influence_increased = {
+			picture = ROM_preserve_greater_romania
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				join_faction_tension = 0.7
+				justify_war_goal_time = 0.5
+				max_command_power = -75
+				stability_weekly = -0.002
+				surrender_limit = -0.5
+				political_power_factor = -0.5
+			}
+		}
+
+
+		ODE_romanian_influence_reduced = {
+			picture = ROM_preserve_greater_romania
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				join_faction_tension = 0.2
+				justify_war_goal_time = 0.1
+				max_command_power = -20
+				stability_weekly = -0.0005
+				surrender_limit = -0.05
+				political_power_factor = -0.1
+			}
+		}
+
+
 		ODE_uneducated_workers = {
 			picture = SPR_subvert_soviet_control
 
@@ -289,6 +529,228 @@ ideas = {
 				production_factory_efficiency_gain_factor = -0.15
 				production_factory_max_efficiency_factor = -0.25
 			}
+		}
+
+
+		ODE_supports_democratic_opposition = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ANA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = 0.1
+				industrial_capacity_factory = -0.02
+				production_factory_efficiency_gain_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+				
+			}
+		}
+
+
+		ODE_internal_fight = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ANA
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.08
+				war_support_factor = -0.05
+				conscription_factor = -0.03
+				surrender_limit = -0.1
+				political_power_factor = -0.1
+				production_factory_max_efficiency_factor = -0.05
+			}
+		}
+
+
+		ODE_mykolaiv_sold = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ANA
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.2
+				production_speed_industrial_complex_factor = 0.3 
+				production_factory_efficiency_gain_factor = 0.25
+				production_lack_of_resource_penalty_factor = -0.1
+			}
+		}
+
+
+		ODE_mykolaiv_bought = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_dockyard_factor = 0.25
+				production_speed_naval_base_factor = 0.2
+				production_speed_coastal_bunker_factor = 0.2
+				political_power_factor = -0.1
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = -0.15
+				production_factory_efficiency_gain_factor = -0.15
+				production_factory_max_efficiency_factor = -0.1
+			}
+		}
+
+
+		ODE_dnipro_doctrine = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				repair_speed_factor = 0.15
+				industrial_capacity_dockyard = 0.15
+				production_oil_factor = 0.2
+				navy_fuel_consumption_factor = -0.2
+				experience_gain_navy = 0.05
+				conscription = 0.03
+				max_command_power = 50
+				training_time_army_factor = -0.1
+			}
+		}
+
+
+		ODE_mykolaiv_port_access = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				repair_speed_factor = 0.1
+				industrial_capacity_dockyard = 0.1
+				experience_gain_navy = 0.01
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+
+		ODE_military_build_up = {
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = 0.1
+				army_morale_factor = 0.05
+				army_speed_factor = 0.1
+				army_attack_factor = 0.05
+				training_time_army_factor = -0.2
+				experience_gain_army = 0.05
+				army_org_regain = 0.2
+			}
+		}
+
+		ODE_transnistria_idea = {
+			picture = man_five_year_plan_industry
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				army_morale_factor = 0.1
+				conscription_factor = 0.1
+				conscription = 0.05
+				experience_gain_navy = 0.1
+			}
+		}
+	}
+
+	
+
+
+	#DESIGNERS
+	naval_manufacturer = {
+	
+		designer = yes
+		
+		odessa_shipbuilders = {
+			
+			allowed = {
+				original_TAG = ODE
+			}
+						
+			research_bonus = {
+				naval_equipment = 0.20
+			}
+			
+			traits = { coastal_defence_naval_manufacturer }
+
 		}
 	}
 }

@@ -1,0 +1,30 @@
+ideas = {
+	political_advisor = {
+		# POLITICAL	
+		doz_besposhadniy = {
+			
+			picture = doz_besposhadniy
+
+			allowed = {
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+			
+			traits = { minus_three }
+	
+			on_add = {
+				#country_event = political.1
+			}
+	
+			do_effect = {
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+}

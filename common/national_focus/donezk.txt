@@ -1,0 +1,956 @@
+﻿# INDUSTRIAL
+focus_tree = {
+	id = donezk_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 100
+			tag = DOZ
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = doz_industrialize
+		icon = GFX_focus_generic_self_management
+		
+		x = 5
+		y = 0
+		
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 100
+			add_ideas = DOZ_resource_res_boost
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_pavlograd_border_conflict
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 10
+		y = 1
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = {}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_war_support = 0.05
+			set_country_flag = unlock_border_war
+			ANA = {country_event = { id = pavlograd_border_conflict.1 }}
+			DOZ = {country_event = { id = pavlograd_border_conflict.1 }}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_road_building
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 2
+		y = 1
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_industrialize }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_timed_idea = {
+				idea = DOZ_inf_boost
+				days = 360
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_build_railway
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 2
+		y = 2
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_road_building }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			# Luganske-Zaporozha
+			build_railway = {
+				path = { 9461 6505 6474 6776 6420 9571 3767 6596 11405 }
+			}
+			200 = {
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					province = 11405
+					instant_build = yes
+				}
+			}
+			add_ideas = DOZ_railway_boost
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_resource_boost
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 2
+		y = 3
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_build_railway }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = DOZ_resource_boost
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_azovstal_expansion
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 1
+		y = 4
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 228
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_research_slot_1 }
+		prerequisite = { focus = doz_resource_boost }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			227 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel 
+					amount = 15
+				}
+			}
+			add_stability = 0.05
+			add_ideas = DOZ_azovstal_expansion
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_mariupol_port
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 1
+		y = 5
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 228
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_azovstal_expansion }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			227 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					province = 6420
+					instant_build = yes
+				}
+			}
+
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_three_year
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -2
+		y = 1
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_industrialize }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_timed_idea = { 
+				idea = DOZ_three_year_plan
+				days = 1080
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_force_urbanization
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -5
+		y = 2
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_three_year }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+			}
+			add_stability = -0.1
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_force_urbanization_2
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -5
+		y = 4
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_force_urbanization }
+		prerequisite = { focus = doz_zapor_factories }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = -0.15
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_land_of_workers
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -4
+		y = 5
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_force_urbanization_2 }
+		prerequisite = { focus = doz_industry_boost }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = -0.2
+			add_ideas = DOZ_workers_society
+		}
+
+		ai_will_do = {
+		}
+	}		
+		
+	focus = {
+		id = doz_research_boost
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 0
+		y = 2
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_three_year focus = doz_road_building}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = { 
+				DOZ_res_boost
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_research_slot_1
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 0
+		y = 3
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_research_boost}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_uzivka_factories
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -2
+		y = 2
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 227
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_three_year}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			227 = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel 
+					amount = 5
+				}
+				add_resource = {
+					type = aluminium
+					amount = 2
+				}  
+			}
+
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_zapor_factories
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -4
+		y = 3
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 200
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_uzivka_factories}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			200 = {
+			
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel 
+					amount = 3
+				} 
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_lugan_factories
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -2
+		y = 3
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 228
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_uzivka_factories}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			228 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = steel 
+					amount = 2
+				} 
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_lugan_school
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -1
+		y = 4
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 228
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_lugan_factories }
+		prerequisite = { focus = doz_research_slot_1 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			228 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_ideas = DOZ_lug_school
+			add_stability = 0.05
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_lugan_mils
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -1
+		y = 5
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 228
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_lugan_school }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			228 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_donbas_jewel
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 0
+		y = 6
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_lugan_mils }
+		prerequisite = { focus = doz_mariupol_port }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_research_slot = 1
+			add_stability = 0.1
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_industry_boost
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -3
+		y = 4
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = doz_zapor_factories}
+		prerequisite = { focus = doz_lugan_factories}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = DOZ_industry_boost
+		}
+
+		ai_will_do = {
+		}
+	}
+}		

@@ -1,0 +1,58 @@
+################
+#### ODESSA ####
+################
+
+ODE_language_status_category = {
+	priority = 9
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_1936_election
+
+	allowed = {
+		tag = ODE
+	}
+}
+
+ODE_transnistria_idea_category = {
+	priority = 4
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_1936_election
+
+	allowed = {
+		tag = ODE
+	}
+}
+
+ODE_consolidation_of_the_power = {
+	priority = 10
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_1936_election
+
+	allowed = {
+		tag = ODE
+	}
+}
+
+ODE_mykolaiv_decisions = {
+	priority = 10
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_1936_election
+
+	allowed = {
+		tag = ODE
+	}
+}
+
+ODE_renaming = {
+	priority = 10
+	icon = generic_crisis
+
+	picture = GFX_decision_cat_picture_1936_election
+
+	allowed = {
+		tag = ODE
+	}
+}

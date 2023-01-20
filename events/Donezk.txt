@@ -1,0 +1,132 @@
+###########################
+# Donezk Events
+###########################
+
+add_namespace = pavlograd_border_conflict
+country_event = {
+	id = pavlograd_border_conflict.1
+	title = pavlograd_border_conflict.1.t
+	desc = pavlograd_border_conflict.1.d
+	picture = GFX_report_event_japanese_transport_soldiers
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_border_conflict.1.a
+		trigger = {
+			original_tag = DOZ
+		}
+		army_experience = 20
+	}
+	option = {
+		name = pavlograd_border_conflict.1.b
+		trigger = {
+			original_tag = ANA
+		}
+		army_experience = 20
+	}
+}
+
+
+#Donezk wins
+country_event = {
+	id = pavlograd_border_conflict.2
+	title = pavlograd_border_conflict.2.t
+	desc = pavlograd_border_conflict.2.d
+	picture = GFX_report_event_japanese_transport_soldiers
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_border_conflict.2.a
+		trigger = {
+			original_tag = DOZ
+		}
+		add_doctrine_cost_reduction = {
+			name = sov_jap_border_conflict_won
+			cost_reduction = 0.35
+			uses = 1
+			category = land_doctrine
+		}
+		add_tech_bonus = {
+			name = sov_jap_border_conflict_won
+			category = armor
+			bonus = 1.0
+		}
+		DOZ = {
+			transfer_state = 909
+			add_stability = 0.05
+		}
+
+	}
+	option = {
+		name = pavlograd_border_conflict.2.b
+		trigger = {
+			original_tag = ANA
+		}
+		army_experience = 20
+	}
+}
+
+#Donezk loses
+country_event = {
+	id = pavlograd_border_conflict.3
+	title = pavlograd_border_conflict.3.t
+	desc = pavlograd_border_conflict.3.d
+	picture = GFX_report_event_japanese_soldiers_03
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_border_conflict.3.a
+		trigger = {
+			original_tag = DOZ
+		}
+		army_experience = 25
+	}
+	option = {
+		name = pavlograd_border_conflict.3.b
+		trigger = {
+			original_tag = ANA
+		}
+		add_doctrine_cost_reduction = {
+			name = sov_jap_border_conflict_won
+			cost_reduction = 0.35
+			uses = 1
+			category = land_doctrine
+		}
+		ANA = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ODE
+				generator = { 200 }
+				expire = 0
+			}
+		}
+	}
+}
+
+#stalemate
+country_event = { 
+	id = pavlograd_border_conflict.4
+	title = pavlograd_border_conflict.4.t
+	desc = pavlograd_border_conflict.4.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_border_conflict.4.a
+		trigger = {
+			original_tag = DOZ
+		}
+		army_experience = 50
+	}
+	option = {
+		name = pavlograd_border_conflict.4.b
+		trigger = {
+			original_tag = ANA
+		}
+		army_experience = 50
+	}
+}

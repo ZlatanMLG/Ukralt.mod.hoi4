@@ -1,5 +1,5 @@
 ###########################
-# Bulgarian Events
+# Odessa Events
 ###########################
 
 add_namespace = odessa
@@ -58,28 +58,610 @@ country_event = {
 }
 
 
-# Naval reform
+# Visit to Romania
 country_event = {
 	id = odessa.3
 	title = odessa.3.t
 	desc = odessa.3.d
-	picture = GFX_report_event_usa_destroyers
+	picture = GFX_report_event_ROM_mistress
 
 	is_triggered_only = yes
 	
 	option = {
 		name = odessa.3.a
-		ai_chance = { factor = 70 }
+		ai_chance = { factor = 40 }
 		ODE = {
-			add_ideas = ODE_industrial_priore
+			remove_ideas = ODE_debt_agreement
+			add_timed_idea = {
+				idea = ODE_paying_debt
+				days = 180
+			}
+			remove_ideas = ODE_romanian_influence
+			add_timed_idea = {
+				idea = ODE_romanian_influence_reduced
+				days = 270
+			}
 		}
 	}
 
 	option = {
 		name = odessa.3.b
-		ai_chance = { factor = 30 }
+		ai_chance = { factor = 40 }
 		ODE = {
-			add_ideas = ODE_military_priore
+			remove_ideas = ODE_debt_agreement
+			remove_ideas = ODE_romanian_influence
+			add_timed_idea = {
+				idea = ODE_romanian_influence_increased
+				days = 540
+			}	
 		}
 	}
+
+	option = {
+		name = odessa.3.c
+		ai_chance = { factor = 20 }
+		ODE = {
+			remove_ideas = ODE_debt_agreement
+			remove_ideas = ODE_romanian_influence
+			add_timed_idea = {
+				idea = ODE_romanian_influence_reduced
+				days = 90
+			}
+			ROM = {
+				add_state_claim = 192
+				add_state_claim = 807
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ODE
+					expire = 360
+				}
+			}
+		}
+	}
+}
+
+
+# Bessarabian deal
+country_event = {
+	id = odessa.4
+	title = odessa.4.t
+	desc = odessa.4.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.4.a
+		ai_chance = { factor = 60 }
+		ROM = {
+			add_timed_idea = { 
+				idea = ODE_bessarabia_sold
+				days = 900
+			}
+			remove_state_core = 766
+			add_state_claim = 766
+			remove_state_core = 78
+			add_state_claim = 78
+		}
+		ODE = {
+			add_timed_idea = { 
+				idea = ODE_bessarabia_purchased
+				days = 900
+			}
+
+			transfer_state = 766
+			transfer_state = 78
+
+			country_event = { id = odessa.10 }
+		}
+
+	}
+
+	option = {
+		name = odessa.4.b
+		ai_chance = { factor = 40 }
+		ODE = {
+			country_event = { id = odessa.5 }	
+		}
+	}
+}
+
+
+# Bessarabian deal accepted notification
+country_event = {
+	id = odessa.10
+	title = odessa.10.t
+	desc = odessa.10.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.10.a
+		ai_chance = { factor = 100 }
+	}
+}
+
+
+# Bessarabian deal rejected notification
+country_event = {
+	id = odessa.5
+	title = odessa.5.t
+	desc = odessa.5.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.5.a
+		ai_chance = { factor = 90 }
+		ROM = {
+			country_event = { id = odessa.6 }	
+		}
+
+	}
+
+	option = {
+		name = odessa.5.b
+		ai_chance = { factor = 10 }
+		ODE = {
+			remove_ideas = ODE_partnership_deal
+			add_state_claim = 766
+			add_state_claim = 78	
+		}
+		ROM = {
+			remove_ideas = ODE_partnership_deal
+		}
+	}
+}
+
+
+# Bessarabian deal rejected, so here we try again..
+country_event = {
+	id = odessa.6
+	title = odessa.6.t
+	desc = odessa.6.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.6.a
+		ai_chance = { factor = 90 }
+		ROM = {
+			add_timed_idea = { 
+				idea = ODE_bessarabia_finally_sold
+				days = 900
+			}
+			remove_state_core = 766
+			add_state_claim = 766
+			remove_state_core = 78
+			add_state_claim = 78
+		}
+		ODE = {
+			add_timed_idea = { 
+				idea = ODE_bessarabia_finally_purchased
+				days = 900
+			}
+
+			transfer_state = 766
+			transfer_state = 78
+
+			country_event = { id = odessa.10 }
+		}
+
+	}
+
+	option = {
+		name = odessa.6.b
+		ai_chance = { factor = 10 }
+		ODE = {
+			country_event = { id = odessa.7 }
+		}	
+	}
+}
+
+
+#The deal fails
+country_event = {
+	id = odessa.7
+	title = odessa.7.t
+	desc = odessa.7.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.7.a
+		ai_chance = { factor = 100 }
+		ODE = {
+			remove_ideas = ODE_partnership_deal
+			add_state_claim = 766
+			add_state_claim = 78
+			create_wargoal = {
+				type = take_state_focus
+				target = ROM
+				expire = 0
+			}	
+		}
+		ROM = {
+			remove_ideas = ODE_partnership_deal
+		}
+	}
+}
+
+
+country_event = { #Politics start
+	id = odessa.8
+	title = odessa.8.t
+	desc = odessa.8.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.8.a
+		ai_chance = { factor = 100 }
+		ODE = {
+			set_country_flag = unlock_gherman_path
+		}
+	}
+
+	option = {
+		name = odessa.8.b
+		ai_chance = { factor = 0 }
+		ODE = {
+			set_country_flag = unlock_oppose_gherman_path
+		}
+	}
+}
+
+
+#Eastern path event 9, 11
+country_event = { 
+	id = odessa.9
+	title = odessa.9.t
+	desc = odessa.9.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	option = {
+		name = odessa.9.a
+		ai_chance = { factor = 20 }
+		ODE = {
+			set_country_flag = unlock_add_fuel
+		}
+	}
+
+	option = {
+		name = odessa.9.b
+		ai_chance = { factor = 80 }
+		ODE = {
+			set_country_flag = unlock_coop_with_anarchist
+    		
+		}
+	}
+}
+
+
+country_event = { 
+	id = odessa.11
+	title = odessa.11.t
+	desc = odessa.11.d
+	picture = GFX_report_event_ROM_mistress
+	
+	is_triggered_only = no
+
+	fire_only_once = yes
+
+	trigger = {
+        has_country_flag = unlock_coop_with_anarchist
+    }
+
+	mean_time_to_happen = {
+    	days = 3
+    }
+
+	option = {
+		name = odessa.11.a
+		ai_chance = { factor = 50 }
+		ODE = {
+			give_guarantee = ANA
+			add_opinion_modifier = { 
+				target = ANA
+				modifier = large_increase
+			}
+		}
+		ANA = {
+			give_guarantee = ODE
+			add_opinion_modifier = { 
+				target = ODE
+				modifier = large_increase
+			}
+		}
+	}
+
+	option = {
+		name = odessa.11.b
+		ai_chance = { factor = 50 }
+		ODE = {
+			set_country_flag = unlock_mykolaiv_deal
+		}
+		custom_effect_tooltip = 4_ODE_tt
+	}
+}
+
+
+#Dnipro doctrine - can buy mykolaiv if decided so before
+country_event = { 
+	id = odessa.12
+	title = odessa.12.t
+	desc = odessa.12.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = no
+	
+	fire_only_once = yes
+
+	trigger = {
+        has_country_flag = unlock_mykolaiv_deal
+        ANA = {
+			owns_state = 197
+			has_full_control_of_state = 197
+        }
+    }
+
+    mean_time_to_happen = {
+        days = 2
+    }
+
+	option = {
+		name = odessa.12.a
+		ai_chance = { factor = 70 }
+		ANA = {
+			country_event = { id = odessa.13 }
+		}
+	}
+
+	option = {
+		name = odessa.12.b
+		ai_chance = { factor = 10 }
+		ODE = {
+			add_state_claim = 197
+			create_wargoal = {
+				type = take_state_focus
+				target = ANA
+				expire = 0
+			}	
+		}
+	}
+
+	option = {
+		name = odessa.12.c
+		ai_chance = { factor = 20 }
+	}
+}
+
+country_event = { 
+	id = odessa.13
+	title = odessa.13.t
+	desc = odessa.13.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = odessa.13.a
+		ai_chance = { factor = 70 }
+		ODE = {country_event = { id = odessa.17 }}
+	}
+
+	option = {
+		name = odessa.13.b
+		ai_chance = { factor = 30 }
+		ODE = {
+			country_event = { id = odessa.14 }	
+		}
+	}
+
+	option = {
+		name = odessa.13.c
+		ai_chance = { factor = 20 }
+	}
+}
+	
+#They said no
+country_event = { 
+	id = odessa.14
+	title = odessa.14.t
+	desc = odessa.14.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = odessa.14.a
+		ai_chance = { factor = 100 }
+		ODE = {
+			add_state_claim = 197
+			create_wargoal = {
+				type = take_state_focus
+				target = ANA
+				expire = 0
+			}
+		}
+	}
+}
+
+
+#Mykolaiv internal affair	
+country_event = { 
+	id = odessa.15
+	title = odessa.15.t
+	desc = odessa.15.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = odessa.15.a
+		ai_chance = { factor = 35 }
+		ODE = {
+			197 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+
+					add_extra_state_shared_building_slots = 3
+
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = odessa.15.b
+		ai_chance = { factor = 35 }
+		ODE = {
+			197 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+
+					add_extra_state_shared_building_slots = 3
+
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = odessa.15.c
+		ai_chance = { factor = 30 }
+		ODE = {
+			197 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+
+					add_extra_state_shared_building_slots = 2
+
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}	
+		}
+	}
+}
+
+
+#Mykolaiv investments (no control of region)	
+country_event = { 
+	id = odessa.16
+	title = odessa.16.t
+	desc = odessa.16.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = odessa.16.a
+		ai_chance = { factor = 40 }
+		ODE = {
+			custom_effect_tooltip = 2_ODE_tt
+			set_country_flag = ODE_unlock_mykolaiv_decisions
+		}
+	}
+
+	option = {
+		name = odessa.16.b
+		ai_chance = { factor = 60 }
+		ODE = {
+			add_ideas = {ODE_mykolaiv_port_access}
+		}
+		ANA = {
+			give_military_access = ODE
+		}
+	}
+}
+
+
+#Mykolaiv bought
+country_event = { 
+	id = odessa.17
+	title = odessa.17.t
+	desc = odessa.17.d
+	picture = GFX_report_event_ROM_mistress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = odessa.17.a
+		ai_chance = { factor = 100 }
+		ODE = {
+			transfer_state = 197
+			give_guarantee = ANA
+			add_opinion_modifier = { 
+				target = ANA
+				modifier = large_increase
+			}
+			add_timed_idea = {
+				idea = ODE_mykolaiv_bought
+				days = 360
+			}
+		}
+		ANA = {
+			add_state_claim = 197
+			give_guarantee = ODE
+			add_opinion_modifier = { 
+				target = ODE
+				modifier = large_increase
+			}
+			add_timed_idea = {
+				idea = ODE_mykolaiv_sold
+				days = 360
+			}
+			add_ideas = { ODE_internal_fight }
+		}
+	}
+
 }

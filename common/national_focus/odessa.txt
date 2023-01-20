@@ -6,7 +6,7 @@ focus_tree = {
 		factor = 0
 		
 		modifier = {
-			add = 10
+			add = 100
 			tag = ODE
 		}
 	}
@@ -17,7 +17,7 @@ focus_tree = {
 
 	focus = {
 		id = odessa_industrialize
-		icon = GFX_goal_generic_major_war
+		icon = GFX_focus_generic_self_management
 		
 		x = 3
 		y = 0
@@ -25,8 +25,6 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			NOT = { is_in_faction_with = USA }
-			#NOT = { has_country_flag = britain_enforced_our_loyalty }
 		}
 
 		bypass = {
@@ -48,27 +46,3297 @@ focus_tree = {
 				uses = 2
 				category = industry
 			}
-			country_event = { id = odessa.2 }
 		}
 
 		ai_will_do = {
 		}
 	}
 
+
 	focus = {
-		id = odessa_tax
-		icon = GFX_goal_generic_major_war
+		id = odessa_industrialize_innovations
+		icon = GFX_goal_continuous_non_factory_construct
 		
 		x = 2
-		y = 4
+		y = 1
 		relative_position_id = odessa_industrialize
 
 		available = {
 			is_subject = no
 		}
 
+		bypass = {
+		}
+
 		cost = 5
 		prerequisite = { focus = odessa_industrialize }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = odessa_industrialize_1
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+
+	focus = {
+		id = odessa_industrialize_1
+		icon = GFX_focus_generic_industry_1
+		dynamic = yes
+		x = 1
+		y = 1
+		relative_position_id = odessa_industrialize_innovations
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_clear_slums
+		icon = GFX_goal_generic_construct_civilian
+		dynamic = yes
+		x = -1
+		y = 1
+		relative_position_id = odessa_industrialize_innovations
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize_innovations } 
+		prerequisite = { focus = odessa_university }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_railroad_improvements
+		icon = GFX_goal_generic_construct_infrastructure
+		dynamic = yes
+		x = 0
+		y = 1
+		relative_position_id = odessa_clear_slums 
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_clear_slums } 
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = ODE_railroad_improvements
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_industrialize_mykolaiv
+		icon = GFX_goal_generic_construction
+		x = 0
+		y = 1
+		relative_position_id = odessa_railroad_improvements
+
+		available = {
+			owns_state = 197
+			has_full_control_of_state = 197
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_railroad_improvements }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			197 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+
+
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}	
+				}
+			}	
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_industrialize_2
+		icon = GFX_focus_generic_industry_2
+		dynamic = yes
+		x = 0
+		y = 1
+		relative_position_id = odessa_industrialize_1
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize_1 }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+		focus = {
+		id = odessa_finalize_industrial
+		icon = GFX_goal_generic_construct_civ_factory
+		dynamic = yes
+		x = 1
+		y = 1
+		relative_position_id = odessa_industrialize_mykolaiv
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize_bessarabia }
+		prerequisite = { focus = odessa_industrialize_mykolaiv }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+
+	focus = {
+		id = odessa_industrialize_bessarabia
+		icon = GFX_focus_generic_industry_3
+		x = 0
+		y = 1
+		relative_position_id = odessa_industrialize_2
+
+		available = {
+			owns_state = 766
+			has_full_control_of_state = 766
+			owns_state = 78
+			has_full_control_of_state = 78
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize_2 }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			766 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+
+
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}	
+			78 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+
+
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_university
+		icon = GFX_focus_research
+		x = 0
+		y = 1
+		relative_position_id = odessa_industrialize
+
+		available = {
+			NOT = { is_in_faction_with = USA }
+			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			add_research_slot = 1
+			remove_ideas = ODE_uneducated_workers
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_university_expansion
+		icon = GFX_focus_research2
+		x = 0
+		y = 4
+		relative_position_id = odessa_university
+
+		available = {
+			date > 1938.01.01
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_university }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_research_slot = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_university_expansion_finalized
+		icon = GFX_focus_spa_the_spanish_miracle
+		x = 0
+		y = 1
+		relative_position_id = odessa_university_expansion
+
+		available = {
+			date > 1940.01.01
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_university_expansion }
+		prerequisite = { focus = odessa_finalize_industrial }
+		prerequisite = { focus = odessa_sevastopol_rebuild }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_research_slot = 1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+
+	focus = {
+		id = odessa_port_investments
+		icon = GFX_focus_mex_privatisation
+		x = -2
+		y = 1
+		relative_position_id = odessa_industrialize
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_industrialize }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			192 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+
+					add_building_construction = {
+								type = coastal_bunker
+								level = 3
+								province = 11670
+								instant_build = yes
+					}
+
+					add_building_construction = {
+								type = naval_base
+								level = 2
+								province = 11670
+								instant_build = yes
+					}
+
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}	
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_dockyard_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = -1
+		y = 1
+		relative_position_id = odessa_port_investments
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_port_investments }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			192 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+
+
+					add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+					}
+
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}	
+				}
+			}	
+
+			navy_experience = 10
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_budjak_port
+		icon = GFX_goal_continuous_naval_production
+		x = 0
+		y = 2
+		relative_position_id = odessa_port_investments
+
+		available = {
+			owns_state = 766
+			has_full_control_of_state = 766
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_port_investments }
+		prerequisite = { focus = odessa_dockyard_expansion }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			766 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+
+
+					add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+					}
+
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}	
+				}
+			}	
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_mykolaiv_dokyard_expansion
+		icon = GFX_goal_generic_build_navy
+		x = 0
+		y = 2
+		relative_position_id = odessa_dockyard_expansion
+
+		available = {
+			owns_state = 197
+			has_full_control_of_state = 197
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_dockyard_expansion }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			197 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+
+
+					add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+					}
+
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}	
+				}
+			}	
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_sevastopol_rebuild
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 1
+		y = 1
+		relative_position_id = odessa_mykolaiv_dokyard_expansion
+
+		available = {
+			owns_state = 137
+			has_full_control_of_state = 137
+		}
+
+		bypass = {
+		}
+
+		cost = 7
+		prerequisite = { focus = odessa_mykolaiv_dokyard_expansion focus = odessa_budjak_port }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			137 = {
+				if = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+
+
+					add_building_construction = {
+								type = infrastructure
+								level = 1
+								instant_build = yes
+					}
+
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}	
+				}
+			}	
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_military_reforms
+		icon = GFX_focus_generic_little_entente
+		x = 33
+		y = 0
+
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_air_reforms
+		icon = GFX_goal_generic_build_airforce
+		x = -7
+		y = 1
+		relative_position_id = odessa_military_reforms
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_military_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_new_airports
+		icon = GFX_focus_generic_aircraft_production
+		x = 2
+		y = 1
+		relative_position_id = odessa_air_reforms
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_air_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_anti_air_focus
+		icon = GFX_focus_generic_air_defense
+		x = -1
+		y = 1
+		relative_position_id = odessa_new_airports
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_new_airports }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_fighter_plane_focus
+		icon = GFX_focus_chi_flying_tigers
+		x = -2
+		y = 1
+		relative_position_id = odessa_air_reforms
+		mutually_exclusive = { focus = odessa_cas_plane_focus }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_air_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_cas_plane_focus
+		icon = GFX_goal_generic_air_bomber
+		x = 0
+		y = 1
+		relative_position_id = odessa_air_reforms
+		mutually_exclusive = { focus = odessa_fighter_plane_focus }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_air_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_naval_aircrafts
+		icon = GFX_focus_SOV_women_in_aviation
+		x = 1
+		y = 1
+		relative_position_id = odessa_fighter_plane_focus
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_cas_plane_focus focus = odessa_fighter_plane_focus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_air_doctrine_research
+		icon = GFX_goal_generic_air_doctrine
+		x = 1
+		y = 1
+		relative_position_id = odessa_naval_aircrafts
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_naval_aircrafts focus = odessa_anti_air_focus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_tactical_choice
+		icon = GFX_focus_usa_escort_fighters
+		x = 0
+		y = 1
+		relative_position_id = odessa_air_doctrine_research
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_air_doctrine_research }
+		mutually_exclusive = { focus = odessa_strategic_choice }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_jet_engines_invention
+		icon = GFX_goal_generic_CAS
+		x = 2
+		y = 1
+		relative_position_id = odessa_air_doctrine_research
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_air_doctrine_research }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_strategic_choice
+		icon = GFX_focus_CZE_military_aeronautical_institute
+		x = -2
+		y = 1
+		relative_position_id = odessa_air_doctrine_research
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_air_doctrine_research }
+		mutually_exclusive = { focus = odessa_tactical_choice }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_strong_airforce
+		icon = GFX_focus_SOV_flying_clubs
+		x = 2
+		y = 1
+		relative_position_id = odessa_strategic_choice
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_strategic_choice focus = odessa_tactical_choice }
+		prerequisite = { focus = odessa_jet_engines_invention }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_army_reforms
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 2
+		relative_position_id = odessa_military_reforms
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_military_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 25
+			add_war_support = 0.03
+			swap_ideas = { 
+				remove_idea = ODE_mercenary_guard 
+				add_idea = ODE_mercenary_guard_early_reformed 
+			}
+			
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_tank_focus
+		icon = GFX_goal_generic_army_tanks
+		x = -3
+		y = 1
+		relative_position_id = odessa_army_reforms
+		mutually_exclusive = { focus = odessa_artillery_focus focus = odessa_infantry_focus focus = odessa_motorized_focus }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_artillery_focus
+		icon = GFX_goal_generic_army_artillery
+		x = -1
+		y = 1
+		relative_position_id = odessa_army_reforms
+		mutually_exclusive = { focus = odessa_tank_focus focus = odessa_infantry_focus focus = odessa_motorized_focus }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_infantry_focus
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 1
+		y = 1
+		relative_position_id = odessa_army_reforms
+		mutually_exclusive = { focus = odessa_tank_focus focus = odessa_artillery_focus focus = odessa_motorized_focus }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_motorized_focus
+		icon = GFX_goal_generic_army_motorized
+		x = 3
+		y = 1
+		relative_position_id = odessa_army_reforms
+		mutually_exclusive = { focus = odessa_tank_focus focus = odessa_artillery_focus focus = odessa_infantry_focus }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_army_reforms_continue_1
+		icon = GFX_focus_focus_fra_maquis
+		x = -1
+		y = 1
+		relative_position_id = odessa_infantry_focus
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_tank_focus focus = odessa_artillery_focus focus = odessa_infantry_focus focus = odessa_motorized_focus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 30
+			add_war_support = 0.04
+			swap_ideas = { 
+				remove_idea = ODE_mercenary_guard_early_reformed
+				add_idea = ODE_mercenary_guard_reform_in_progress 
+			}
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_tank_focus_continue_1
+		icon = GFX_focus_generic_tank_production
+		x = -3
+		y = 1
+		relative_position_id = odessa_army_reforms_continue_1
+
+		available = {
+			is_subject = no 
+			has_completed_focus = odessa_tank_focus
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms_continue_1 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_artillery_focus_continue_1
+		icon = GFX_goal_generic_army_artillery2
+		x = -1
+		y = 1
+		relative_position_id = odessa_army_reforms_continue_1
+
+		available = {
+			is_subject = no 
+			has_completed_focus = odessa_artillery_focus
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms_continue_1 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_infantry_focus_continue_1
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 1
+		relative_position_id = odessa_army_reforms_continue_1
+
+		available = {
+			is_subject = no 
+			has_completed_focus = odessa_infantry_focus
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms_continue_1 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_motorized_focus_continue_1
+		icon = GFX_focus_SOV_the_road_of_life
+		x = 3
+		y = 1
+		relative_position_id = odessa_army_reforms_continue_1
+
+		available = {
+			is_subject = no 
+			has_completed_focus = odessa_motorized_focus
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_army_reforms_continue_1 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_army_reforms_continue_2
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = -1
+		y = 1
+		relative_position_id = odessa_infantry_focus_continue_1
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_tank_focus_continue_1 focus = odessa_artillery_focus_continue_1 focus = odessa_infantry_focus_continue_1 focus = odessa_motorized_focus_continue_1 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 35
+			add_war_support = 0.05
+			swap_ideas = { 
+				remove_idea = ODE_mercenary_guard_reform_in_progress 
+				add_idea = ODE_mercenary_guard_fully_reformed
+			}
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_navy_reforms
+		icon = GFX_goal_generic_build_navy
+		x = 7
+		y = 1
+		relative_position_id = odessa_military_reforms
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_military_reforms}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_port_status_decision
+		icon = GFX_focus_generic_mine_warfare
+		x = -2
+		y = 1
+		relative_position_id = odessa_navy_reforms
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_navy_reforms }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_naval_production_focus
+		icon = GFX_goal_generic_wolf_pack
+		x = 2
+		y = 1
+		relative_position_id = odessa_navy_reforms
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_navy_reforms }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_trade_focus_remained
+		icon = GFX_goal_generic_trade
+		x = -2
+		y = 1
+		relative_position_id = odessa_naval_production_focus
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_naval_production_focus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_gain_from_open_trade
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = -2
+		y = 1
+		relative_position_id = odessa_trade_focus_remained
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_trade_focus_remained }
+		prerequisite = { focus = odessa_port_status_decision }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_convoy_production_machine
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 0
+		y = 1
+		relative_position_id = odessa_gain_from_open_trade
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_gain_from_open_trade }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_convoy_escort_investments
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		x = 2
+		y = 1
+		relative_position_id = odessa_gain_from_open_trade
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_gain_from_open_trade }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_open_trade_world_center
+		icon = GFX_focus_POL_support_global_falangism
+		x = 1
+		y = 1
+		relative_position_id = odessa_convoy_production_machine
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_convoy_production_machine }
+		prerequisite = { focus = odessa_convoy_escort_investments }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_undecisive_choice
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		x = 0
+		y = 1
+		relative_position_id = odessa_naval_production_focus
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_naval_production_focus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_battle_navy_prevailed
+		icon = GFX_focus_generic_africa_naval
+		x = 2
+		y = 1
+		relative_position_id = odessa_naval_production_focus
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_naval_production_focus }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_destroyer_research
+		icon = GFX_focus_generic_destroyer
+		x = 1
+		y = 1
+		relative_position_id = odessa_trade_focus_remained
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_battle_navy_prevailed focus = odessa_undecisive_choice }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_battleship_lead
+		icon = GFX_focus_generic_navy_battleship2
+		x = 3
+		y = 1
+		relative_position_id = odessa_trade_focus_remained
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_battle_navy_prevailed focus = odessa_undecisive_choice }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_submarine_warfare
+		icon = GFX_goal_generic_navy_submarine
+		x = 5
+		y = 1
+		relative_position_id = odessa_trade_focus_remained
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_battle_navy_prevailed focus = odessa_undecisive_choice }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_cruiser_compromise
+		icon = GFX_focus_generic_cruiser2
+		x = 1
+		y = 1
+		relative_position_id = odessa_destroyer_research
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_battleship_lead focus = odessa_destroyer_research }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_carriers_introduction
+		icon = GFX_goal_generic_navy_carrier
+		x = 3
+		y = 1
+		relative_position_id = odessa_destroyer_research
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_battleship_lead focus = odessa_submarine_warfare }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_strong_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 1
+		y = 1
+		relative_position_id = odessa_cruiser_compromise
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_cruiser_compromise focus = odessa_carriers_introduction }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = { 
+		id = odessa_finaliza_military_reforms
+		icon = GFX_focus_BUL_prussia_of_the_balkans
+		x = 0
+		y = 2
+		relative_position_id = odessa_army_reforms_continue_2
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_strong_navy focus = odessa_open_trade_world_center }
+		prerequisite = { focus = odessa_strong_airforce }
+		prerequisite = { focus = odessa_army_reforms_continue_2 }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_political_start
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 17
+		y = 0
+
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 1
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			add_political_power = 150
+			add_stability = 0.01
+			country_event = { id = odessa.8 }
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_pro_gherman
+		icon = GFX_focus_pro_gherman
+		x = -4
+		y = 1
+		relative_position_id = odessa_political_start
+		mutually_exclusive = { focus = odessa_oppose_gherman }
+
+		available = {
+			is_subject = no
+			has_country_flag = unlock_gherman_path 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_political_start }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			custom_effect_tooltip = 1_ODE_tt
+			add_stability = 0.1
+			set_country_flag = odessa_consolidation_of_the_power
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_visit_to_romania
+		icon = GFX_goal_tripartite_pact
+		x = -3
+		y = 1
+		relative_position_id = odessa_pro_gherman
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_pro_gherman }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_stability = 0.1
+			country_event = { id = odessa.3 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_moldavian_roots
+		icon = GFX_focus_moldavian_roots
+		x = -1
+		y = 1
+		relative_position_id = odessa_visit_to_romania
+		mutually_exclusive = { focus = odessa_bury_the_axe_of_war }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_visit_to_romania }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ODE = {
+				add_state_claim = 766
+				add_state_claim = 78
+			}
+			add_war_support = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_moldavian_rebellion
+		icon = GFX_focus_rom_parties_end
+		x = 0
+		y = 1
+		relative_position_id = odessa_moldavian_roots
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_moldavian_roots }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROM = {
+				remove_state_core = 766
+				add_state_claim = 766
+				remove_state_core = 78
+				add_state_claim = 78
+			}
+
+			add_war_support = 0.05
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_moldavian_preparations
+		icon = GFX_focus_generic_manpower
+		x = 0
+		y = 1
+		relative_position_id = odessa_moldavian_rebellion
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_moldavian_rebellion }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ODE = {
+				army_experience = 30
+				add_timed_idea = { 
+					idea = ODE_rom_war_preparations
+					days = 180
+				}
+			}
+			add_war_support = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_moldavian_war
+		icon = GFX_focus_rom_abdicate
+		x = 0
+		y = 1
+		relative_position_id = odessa_moldavian_preparations
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_moldavian_preparations }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_country = {
+				limit = {
+					owns_state = 766
+				}
+				ODE = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						generator = { 766 78 }
+						expire = 0
+					}
+				}
+			}
+			add_war_support = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_bessarabian_core
+		icon = GFX_goal_generic_major_alliance
+		x = 1
+		y = 1
+		relative_position_id = odessa_moldavian_war
+
+		available = {
+			is_subject = no
+			ODE = {
+				owns_state = 766
+				owns_state = 78
+			}
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_moldavian_war 
+			focus = odessa_bessarabia_purchase
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ODE = {
+				add_state_core = 766
+				add_state_core = 78
+			}
+			add_stability = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_bury_the_axe_of_war
+		icon = GFX_focus_bury_the_axe_of_war
+		x = 1
+		y = 1
+		relative_position_id = odessa_visit_to_romania
+		mutually_exclusive = { focus = odessa_moldavian_roots }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_visit_to_romania }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_war_support = -0.1
+			add_stability = 0.1
+			ROM = {
+				add_opinion_modifier = { 
+					target = ODE
+					modifier = large_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_join_infrastructure
+		icon = GFX_goal_continuous_repairments
+		x = 0
+		y = 1
+		relative_position_id = odessa_bury_the_axe_of_war
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_bury_the_axe_of_war }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			192 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			807 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			766 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			78 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			ROM = {
+				add_opinion_modifier = { 
+					target = ODE
+					modifier = medium_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_partnership_deal
+		icon = GFX_focus_invite_romania
+		x = 0
+		y = 1
+		relative_position_id = odessa_join_infrastructure
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_join_infrastructure }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROM = {
+				add_ideas = { 
+					ODE_partnership_deal
+				}
+				add_opinion_modifier = { 
+					target = ODE
+					modifier = small_increase
+				}
+			}
+			add_ideas = { 
+				ODE_partnership_deal
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_bessarabia_purchase
+		icon = GFX_focus_mex_privatisation
+		x = 0
+		y = 1
+		relative_position_id = odessa_partnership_deal
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_partnership_deal }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			ROM = {
+				country_event = { id = odessa.4 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_external_politics
+		icon = GFX_goal_continuous_boost_freedom
+		x = 3
+		y = 1
+		relative_position_id = odessa_pro_gherman
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_pro_gherman }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_stability = 0.1
+			country_event = { id = odessa.9 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_add_fuel_to_the_fire
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = -1
+		y = 1
+		relative_position_id = odessa_external_politics
+		mutually_exclusive = { focus = odessa_improve_anarchist_relationships }
+
+		available = {
+			is_subject = no 
+			has_country_flag = unlock_add_fuel
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_external_politics }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			ANA = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.1
+				}
+
+				add_ideas = ODE_supports_democratic_opposition
+			}
+
+			
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_the_barn_is_on_fire_lets_burn_the_house_as_well
+		icon = GFX_focus_POL_riot_of_37
+		x = 0
+		y = 1
+		relative_position_id = odessa_add_fuel_to_the_fire
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_add_fuel_to_the_fire }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = ODE_military_build_up
+				days = 180
+			}
+			random_country = {
+				limit = {
+					owns_state = 197
+				}
+				ODE = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						generator = { 197 203 259 226 }
+						expire = 0
+					}
+				}
+			}
+			
+			add_war_support = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_consolidate_mykolaiv
+		icon = GFX_focus_POL_ukrainian_army
+		x = 1
+		y = 1
+		relative_position_id = odessa_the_barn_is_on_fire_lets_burn_the_house_as_well
+
+		available = {
+			is_subject = no
+			has_full_control_of_state = 197 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_the_barn_is_on_fire_lets_burn_the_house_as_well focus = odessa_mykolaiv_purchase }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_state_core = 197
+			add_stability = 0.1
+			set_country_flag = ODE_unlock_renaming
+			custom_effect_tooltip = 3_ODE_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_crimean_co_prosperity
+		icon = GFX_focus_SOV_reinforce_southern_naval_bases
+		x = -1
+		y = 1
+		relative_position_id = odessa_consolidate_mykolaiv
+		mutually_exclusive = { focus = odessa_nowhere_else_to_run }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_the_barn_is_on_fire_lets_burn_the_house_as_well focus = odessa_mykolaiv_purchase  }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_stability = 0.1
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_nowhere_else_to_run
+		icon = GFX_focus_LIT_new_kind_of_iron_wolf
+		x = 1
+		y = 1
+		relative_position_id = odessa_consolidate_mykolaiv
+		mutually_exclusive = { focus = odessa_crimean_co_prosperity }
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_the_barn_is_on_fire_lets_burn_the_house_as_well focus = odessa_mykolaiv_purchase  }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_country = {
+				limit = {
+					owns_state = 196
+				}
+				ODE = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						generator = { 196 137 }
+						expire = 0
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_eastern_flang_secured
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = -1
+		y = 1
+		relative_position_id = odessa_nowhere_else_to_run
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_crimean_co_prosperity focus = odessa_nowhere_else_to_run }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+			    limit = {
+			        original_tag = ODE
+			        has_full_control_of_state = 196
+			    } 
+			    ODE = {
+			    	add_state_core = 196
+			    }
+			}  
+			if = {
+			    limit = {
+			        original_tag = ODE
+			        has_full_control_of_state = 137
+			    } 
+			    ODE = {
+			    	add_state_core = 137
+			    }
+			} 
+			add_stability = 0.05
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_improve_anarchist_relationships
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		x = 1
+		y = 1
+		relative_position_id = odessa_external_politics
+		mutually_exclusive = { focus = odessa_add_fuel_to_the_fire }
+
+		available = {
+			is_subject = no 
+			has_country_flag = unlock_coop_with_anarchist
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_external_politics }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+			    limit = {
+			        original_tag = ODE
+			        has_full_control_of_state = 197
+			    }   
+			    197 = {
+					if = {
+						limit = {
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+							free_building_slots = {
+								building = industrial_complex
+								size > 1
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 3
+
+						add_building_construction = {
+							type = dockyard
+							level = 1
+							instant_build = yes
+						}
+
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}	
+					}
+				}	
+				ODE = {
+					add_state_claim = 196
+					add_state_claim = 202
+					add_state_claim = 203
+					add_state_claim = 226
+					add_state_claim = 200
+					add_ideas = ODE_dnipro_doctrine
+				}
+			}
+			else = {
+			    add_stability = -0.03
+			    ODE = {
+					add_state_claim = 196
+					add_state_claim = 202
+					add_state_claim = 203
+					add_state_claim = 226
+					add_state_claim = 200
+					add_state_claim = 197
+					add_ideas = ODE_dnipro_doctrine
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_mykolaiv_purchase
+		icon = GFX_focus_POL_warsaw_main_station
+		x = 0
+		y = 1
+		relative_position_id = odessa_improve_anarchist_relationships
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_improve_anarchist_relationships }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+			    limit = {
+			        original_tag = ODE
+			        has_full_control_of_state = 197
+			    }
+				ODE = {country_event = { id = odessa.15 }}
+			}
+			else = {
+				ODE = {country_event = { id = odessa.16 }}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_gherman_industrial_plan
+		icon = GFX_focus_gherman_industrial_plan
+		x = 0
+		y = 2
+		relative_position_id = odessa_pro_gherman
+
+		available = {
+			is_subject = no 
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_pro_gherman }
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_stability = 0.1
+			country_event = { id = odessa.2 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+	focus = {
+		id = odessa_tax
+		icon = GFX_focus_hol_the_foundations_of_defense
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_gherman_industrial_plan
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_gherman_industrial_plan }
 		
 
 		cancel_if_invalid = yes
@@ -84,23 +3352,51 @@ focus_tree = {
 		}
 	}
 
+
 	focus = {
-		id = odessa_industrialize_1
-		icon = GFX_goal_generic_major_war
-		dynamic = yes
-		x = 3
+		id = odessa_revive_agriculture
+		icon = GFX_focus_revive_agriculture
+		
+		x = 0
 		y = 1
-		relative_position_id = odessa_industrialize
+		relative_position_id = odessa_tax
 
 		available = {
-			NOT = { is_in_faction_with = USA }
+			is_subject = no
 		}
 
-		bypass = {
+		cost = 5
+		prerequisite = { focus = odessa_tax }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = ODE_agriculture_reform
+			add_stability = 0.1 
 		}
 
-		cost = 7
-		prerequisite = { focus = odessa_industrialize }
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_build_steel_factories
+		icon = GFX_focus_generic_steel
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_revive_agriculture
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_revive_agriculture }
 		
 
 		cancel_if_invalid = yes
@@ -109,76 +3405,40 @@ focus_tree = {
 
 		completion_reward = {
 			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
 				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
+				add_resource = {
+					type = steel 
+					amount = 22
+				} 
 			}
 		}
 
 		ai_will_do = {
-			factor = 1
 		}
 	}
 
+
 	focus = {
-		id = odessa_dockyard_1
-		icon = GFX_goal_generic_major_war
-		dynamic = yes
+		id = odessa_transnistria_corp_idea
+		icon = GFX_focus_transnistria_idea
+		
 		x = 0
-		y = 1
-		relative_position_id = odessa_industrialize_1
+		y = 2
+		relative_position_id = odessa_build_steel_factories
 
 		available = {
-			has_full_control_of_state = 192
-			NOT = { is_in_faction_with = USA }
-			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+			is_subject = no
 		}
 
-		bypass = {
-		}
-
-		cost = 7
-		prerequisite = { focus = odessa_industrialize_1 }
+		cost = 5
+		prerequisite = { focus = odessa_build_steel_factories }
+		prerequisite = { focus = odessa_bessarabian_core }
+		prerequisite = { focus = odessa_eastern_flang_secured }
 		
 
 		cancel_if_invalid = yes
@@ -186,39 +3446,30 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			192 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
-				}
-			}
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_ideas = ODE_transnistria_idea
 		}
 
 		ai_will_do = {
-			factor = 1
 		}
 	}
+
+
 	focus = {
-		id = odessa_dockyard_2
+		id = odessa_communism_with_capital
 		icon = GFX_goal_generic_major_war
-		dynamic = yes
-		x = 0
+		
+		x = 4
 		y = 1
-		relative_position_id = odessa_dockyard_1
+		relative_position_id = odessa_transnistria_corp_idea
 
 		available = {
-			has_full_control_of_state = 192
-			NOT = { is_in_faction_with = USA }
-			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+			is_subject = no
 		}
 
-		bypass = {
-		}
-
-		cost = 7
-		prerequisite = { focus = odessa_dockyard_1 }
+		cost = 5
+		prerequisite = { focus = odessa_transnistria_corp_idea }
 		
 
 		cancel_if_invalid = yes
@@ -226,82 +3477,631 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			192 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = dockyard
-					level = 3
-					instant_build = yes
-				}
-			}
+			add_stability = 0.25
+			add_war_support = 0.25
 		}
 
 		ai_will_do = {
-			factor = 1
 		}
 	}
+
+
 	focus = {
-		id = odessa_university
+		id = odessa_georgian_will
 		icon = GFX_goal_generic_major_war
-		x = 0
+		
+		x = 1
 		y = 1
-		relative_position_id = odessa_industrialize
+		relative_position_id = odessa_communism_with_capital
 
 		available = {
-			NOT = { is_in_faction_with = USA }
-			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+			is_subject = no
 		}
 
-		bypass = {
-		}
-
-		cost = 7
-		prerequisite = { focus = odessa_industrialize }
-		mutually_exclusive = { focus = odessa_university_1 }
-
+		cost = 5
+		prerequisite = { focus = odessa_communism_with_capital }
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
 		completion_reward = {
-			
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			add_research_slot = 1
-			remove_ideas = ODE_uneducated_workers
+			add_stability = 0.25
+			add_war_support = 0.25
 		}
 
 		ai_will_do = {
-			factor = 1
 		}
 	}
+
+
 	focus = {
-		id = odessa_university_1
+		id = odessa_ukrainian_neocommunism
 		icon = GFX_goal_generic_major_war
+		
+		x = -1
+		y = 1
+		relative_position_id = odessa_communism_with_capital
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_communism_with_capital }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_bears_deal
+		icon = GFX_goal_generic_major_war
+		
+		x = 1
+		y = 1
+		relative_position_id = odessa_ukrainian_neocommunism
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_ukrainian_neocommunism focus = odessa_georgian_will }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_capitalism_victory
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_bears_deal
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_bears_deal }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_asian_partners
+		icon = GFX_goal_generic_major_war
+		
+		x = -4
+		y = 1
+		relative_position_id = odessa_transnistria_corp_idea
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_transnistria_corp_idea }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_middle_east_investments
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_asian_partners
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_asian_partners }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_china_opium_and_colonies
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_middle_east_investments
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_middle_east_investments }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_japan_offer
+		icon = GFX_goal_generic_major_war
+		
+		x = 1
+		y = 1
+		relative_position_id = odessa_china_opium_and_colonies
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_china_opium_and_colonies }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_indonesian_jewel
+		icon = GFX_goal_generic_major_war
+		
+		x = -1
+		y = 1
+		relative_position_id = odessa_china_opium_and_colonies
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_china_opium_and_colonies }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_black_sea_direction
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 2
+		relative_position_id = odessa_transnistria_corp_idea
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_transnistria_corp_idea }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_road_to_suez
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 2
+		relative_position_id = odessa_black_sea_direction
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_black_sea_direction }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_bulgarian_future
+		icon = GFX_goal_generic_major_war
+		
+		x = 1
+		y = 1
+		relative_position_id = odessa_black_sea_direction
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_black_sea_direction }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_romanian_moldova
+		icon = GFX_goal_generic_major_war
+		
+		x = -1
+		y = 1
+		relative_position_id = odessa_black_sea_direction
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_black_sea_direction }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_challenge_the_giants
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_road_to_suez
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_road_to_suez }
+		prerequisite = { focus = odessa_japan_offer }
+		prerequisite = { focus = odessa_capitalism_victory }	
+		prerequisite = { focus = odessa_indonesian_jewel }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_road_to_india
+		icon = GFX_goal_generic_major_war
+		
+		x = 2
+		y = 1
+		relative_position_id = odessa_challenge_the_giants
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_challenge_the_giants }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_panama_control
+		icon = GFX_goal_generic_major_war
+		
 		x = -2
 		y = 1
-		relative_position_id = odessa_industrialize
+		relative_position_id = odessa_challenge_the_giants
 
 		available = {
-			NOT = { is_in_faction_with = USA }
-			#NOT = { has_country_flag = britain_enforced_our_loyalty }
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_challenge_the_giants }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_seize_suez_and_gibraltar
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 1
+		relative_position_id = odessa_challenge_the_giants
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_challenge_the_giants }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_ivory_coast_next
+		icon = GFX_goal_generic_major_war
+		
+		x = -4
+		y = 1
+		relative_position_id = odessa_challenge_the_giants
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_challenge_the_giants }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_venezuela_resources
+		icon = GFX_goal_generic_major_war
+		
+		x = 4
+		y = 1
+		relative_position_id = odessa_challenge_the_giants
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_challenge_the_giants }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_global_gegemony
+		icon = GFX_goal_generic_major_war
+		
+		x = 0
+		y = 3
+		relative_position_id = odessa_challenge_the_giants
+
+		available = {
+			is_subject = no
+		}
+
+		cost = 5
+		prerequisite = { focus = odessa_venezuela_resources focus = odessa_road_to_india }
+		prerequisite = { focus = odessa_seize_suez_and_gibraltar }
+		prerequisite = { focus = odessa_panama_control focus = odessa_ivory_coast_next }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+		}
+
+		ai_will_do = {
+		}
+	}
+
+
+	focus = {
+		id = odessa_oppose_gherman
+		icon = GFX_focus_oppose_gherman
+		x = 4
+		y = 1
+		relative_position_id = odessa_political_start
+		mutually_exclusive = { focus = odessa_pro_gherman }
+
+		available = {
+			is_subject = no 
+			has_country_flag = unlock_oppose_gherman_path
 		}
 
 		bypass = {
 		}
 
-		cost = 7
-		prerequisite = { focus = odessa_industrialize }
-		mutually_exclusive = { focus = odessa_university }
+		cost = 5
+		prerequisite = { focus = odessa_political_start }
 
 
 		cancel_if_invalid = yes
@@ -309,18 +4109,9 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-			}
-			add_research_slot = 1
+
 			add_stability = 0.1
+
 		}
 
 		ai_will_do = {

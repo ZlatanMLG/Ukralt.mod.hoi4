@@ -1,0 +1,32 @@
+ideas = {
+	political_advisor = {
+		# POLITICAL	
+		first_test_advisor = {
+			
+			picture = first_test_advisor
+
+			allowed = {
+				original_tag = ODE
+			}
+
+			available = {
+				if = {
+					has_completed_focus = odessa_university
+				}
+			}
+			
+			traits = { minus_three }
+	
+			on_add = {
+				#country_event = political.1
+			}
+	
+			do_effect = {
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+}
