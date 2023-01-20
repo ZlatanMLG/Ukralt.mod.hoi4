@@ -1,0 +1,33 @@
+state={
+	id=914
+	name="STATE_914"
+	resources={
+		steel=1.000
+		oil=2.000
+	}
+
+	history={
+		owner = POL
+		victory_points = {
+			3434 1 
+		}
+		victory_points = {
+			466 1 
+		}
+		
+		buildings = {
+			infrastructure = 2
+		}
+		add_core_of = POL
+
+	}
+
+	provinces={
+		466 3410 3434 6522 
+	}
+	manpower=201650
+	buildings_max_level_factor=1.000
+	state_category=rural
+
+	local_supplies=1.0 
+}

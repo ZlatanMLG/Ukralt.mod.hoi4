@@ -1,0 +1,85 @@
+﻿l_english:
+ odessa.1.t:0 "Oooh, fancy hats.."
+ odessa.1.d:0 "Today, our finnish brothers introduced new winter clothing generation, and among it we found really interesting thing - gorgeous and warm hats, made with scandinavian bears fur. Finnish delegation noticed our interest in them, and proposed an offer to buy few hats for our army with a sizeable discount. What should we answer?"
+ odessa.1.a:0 "Gimme 200 of those!"
+ odessa.1.b:0 "Nah, screw it.."
+
+ odessa.2.t:0 "Plan direction.."
+ odessa.2.d:0 "What plan should we choose?"
+ odessa.2.a:0 "Industial focus"
+ odessa.2.b:0 "Military focus"
+
+ odessa.3.t:0 "Our proposal.."
+ odessa.3.d:0 "Today, a historic meeting took place between the heads of the two neighboring countries, and the agenda was nothing more than the Bucharest Agreement, which we were forced to agree to, due to a huge hole in the budget of our country. It is no secret that it has put a heavy burden on our economy, so our delegation made the following proposal:"
+ odessa.3.a:0 "Paying off debt gradually will be the best solution."
+ odessa.3.b:0 "Invite Romanians to the administration, in exchange for paying off the debt."
+ odessa.3.c:0 "No compromises for romanian scum!"
+
+ odessa.4.t:0 "Bessarabian offer"
+ odessa.4.d:0 "Odessa offers to buy our land."
+ odessa.4.a:0 "Anyway we didn`t need those undeveloped rural regions.."
+ odessa.4.b:0 "That`s to little to persuade us"
+
+ odessa.5.t:0 "Bessarabian offer negotiations process"
+ odessa.5.d:0 "Romania denied our offer, but we can afford to do a counter-offer, or rather sohuld we abandon this idea?"
+ odessa.5.a:0 "Our people definitely know how to bargain.."
+ odessa.5.b:0 "That`s the end of our partnership."
+
+ odessa.6.t:0 "Bessarabian negotiations continue"
+ odessa.6.d:0 "Odessa is here again, with a counter-offer. Indeed, this is a generous proposal now. How should we answer?"
+ odessa.6.a:0 "Anyway we didn`t need those undeveloped rural regions.."
+ odessa.6.b:0 "They start to look like the pesky flies."
+
+ odessa.7.t:0 "Bessarabian negotiations failed"
+ odessa.7.d:0 "Romania denied our offer again, it seems like they were not that great partner as we thought before."
+ odessa.7.a:0 "`"
+
+ odessa.8.t:0 "Our future"
+ odessa.8.d:0 "Gherman started his rule just year before, but the majority of our population is already calls for changes. Still, we should choose either we put our hopes in the hands of this foreigner, or rather pick a better leader instead"
+ odessa.8.a:0 "Shut the opposition, serve the corporation."
+ odessa.8.b:0 "Odessa won`t be rulled by romanian puppet!"
+
+ odessa.9.t:0 "Wind form the east.."
+ odessa.9.d:0 "Our eastern border is uncalm - anarchist rule is trembling, this is an opportunity that we can`t just ignore. The possibility of peacefull co-existing is preferable due to future economic opportunities. But aggresive solution is always an option, if we are confident enough in our army capability."
+ odessa.9.a:0 "Anarchist cannot be trusted!"
+ odessa.9.b:0 "Send our diplomats to Dnipropetrovsk" 
+
+ odessa.10.t:0 "The deal was a huge success!"
+ odessa.10.d:0 "Romania has accepted the deal, now it`s payday.."
+ odessa.10.a:0 "The outcome was obvious from the beginning"
+
+
+ odessa.11.t:0 "The delegation has arrived."
+ odessa.11.d:0 "The delegation has arrived, and now it is time to decide its main purpose, on one hand we have constant separatist attacks form this wild region, and on the second - we can exploit their nomad weaknesses and use this rare oportunity.."
+ odessa.11.a:0 "Lets limit our relationships with few guarantees."
+ odessa.11.b:0 "Offer a full-fledge partnership." 
+
+ odessa.12.t:0 "Mykolaiv deal"
+ odessa.12.d:0 "The delegation presented a perspective project to the leader of local separatists. We want to control Mykolaiv port and local territory in exchange of free passage of transport ships, considerate payment and our help in their potention local so-called civil war or any outside aggresion."
+ odessa.12.a:0 "It is a fair deal for the both of us."
+ odessa.12.b:0 "Tell me again, why are we bargaining with terrorists?" 
+ odessa.12.c:0 "I forgot what i wanted, Carol, mind if we leave this place for the good sake."
+
+ odessa.13.t:0 "Mykolaiv deal"
+ odessa.13.d:0 "The Odessa delegation presented us an offer to sell Mykolaiv for guarantees and financial profit."
+ odessa.13.a:0 "It is a fair deal for the both of us."
+ odessa.13.b:0 "Tell me again, who are they?" 
+
+ odessa.14.t:0 "Mykolaiv deal denied"
+ odessa.14.d:0 "Humanidade foe um erro."
+ odessa.14.a:0 "La paz nunca fue una opcion." 
+
+ odessa.15.t:0 "Mykolaiv internal affairs"
+ odessa.15.d:0 "After a series of difficult negotiations and uncertain decisions of our neighbor, we still managed to gain control over the territory of Mykolaiv, we need to decide what we will do with this region."
+ odessa.15.a:0 "Turn the region into a shipbuilding port." 
+ odessa.15.b:0 "Enlist the support of the population by creating jobs." 
+ odessa.15.c:0 "Only brute force is possible to hold the region." 
+
+ odessa.16.t:0 "Mykolaiv investments"
+ odessa.16.d:0 "Perhaps this time we did not manage to get the desired region, but this does not mean that we will completely abandon our plans. Through continued investment in the region, we can extend our local influence and gradually economically integrate the region right under their noses, or we can limit ourselves to short-term contracts and access to local ports."
+ odessa.16.a:0 "Start an investment and integration program." 
+ odessa.16.b:0 "Our budget cannot stand otherwise." 
+
+ odessa.17.t:0 "Mykolaiv deal accepted"
+ odessa.17.d:0 "Todavía hay esperanza para la humanidad."
+ odessa.17.a:0 "Habrá una solución pacífica." 

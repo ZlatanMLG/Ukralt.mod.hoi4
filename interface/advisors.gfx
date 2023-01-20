@@ -1,0 +1,63 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_idea_first_test_advisor"
+		texturefile = "gfx/interface/advisors/advisor_first_test.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_besposhadniy"
+		texturefile = "gfx/interface/advisors/advisor_doz_besposhadniy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_vedmidiv"
+		texturefile = "gfx/interface/advisors/advisor_doz_vedmidiv.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_shapoval"
+		texturefile = "gfx/interface/advisors/advisor_doz_shapoval.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_bilezkiy"
+		texturefile = "gfx/interface/advisors/advisor_doz_bilezkiy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_sosura"
+		texturefile = "gfx/interface/advisors/advisor_doz_sosura.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_gonta"
+		texturefile = "gfx/interface/advisors/advisor_doz_gonta.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_mykolayenko"
+		texturefile = "gfx/interface/advisors/advisor_doz_mykolayenko.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_myzuk"
+		texturefile = "gfx/interface/advisors/advisor_doz_myzuk.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_kononov"
+		texturefile = "gfx/interface/advisors/advisor_doz_kononov.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_chreschatytskiy"
+		texturefile = "gfx/interface/advisors/advisor_doz_chreschatytskiy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_doz_zadov"
+		texturefile = "gfx/interface/advisors/advisor_doz_zadov.dds"
+	}
+
+}

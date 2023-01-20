@@ -1,0 +1,31 @@
+state = {
+	id = 911
+	name = "STATE_911"
+	manpower = 190380
+	
+	state_category = rural
+
+	history = {
+		owner = CZE
+		victory_points = {
+			3581 3
+		}
+		buildings = {
+		
+			infrastructure = 2
+			industrial_complex = 1
+		}
+		add_core_of = CZE
+		1939.3.14 = {
+			owner = SLO
+			controller = SLO
+			add_core_of = SLO
+		}
+	}
+
+	provinces = {
+		3581 6586 6604
+	}
+
+	local_supplies = 1.0 
+}

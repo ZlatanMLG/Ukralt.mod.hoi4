@@ -1,0 +1,10 @@
+spriteTypes = {	
+
+	#### Generic continuous goal icons
+
+	
+	SpriteType = { 
+		name = "GFX_idea_odessa_shipbuilders"
+		texturefile = "gfx/interface/ideas/idea_odessa_shipbuilders.dds"
+	}
+}

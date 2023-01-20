@@ -6,6 +6,8 @@ state={
 	resources={
 		oil=8 # was: 14
 		aluminium=7 # was: 12
+		tungsten=1
+		steel=11
 	}
 	
 	state_category = city
@@ -16,14 +18,13 @@ state={
 			525 25
 		}
 		buildings = {
-			infrastructure = 7
+			infrastructure = 3
 			arms_factory = 2
 			industrial_complex = 3
 			fuel_silo = 1
 			air_base = 8
 		}
 		add_core_of = UKA
-		add_core_of = UKR
 		1939.1.1 = {
 			buildings = {
 				arms_factory = 3
@@ -33,6 +34,8 @@ state={
 	}
 
 	provinces={
-		489 504 525 582 3494 3543 6497 9465 9543 9568 11557 
+		504 525 3494 3543 6497 9465 9568
 	}
+
+	local_supplies=0.0 
 }

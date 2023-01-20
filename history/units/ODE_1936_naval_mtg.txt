@@ -1,0 +1,26 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	##### BLACK SEA FLEET #####
+	##### Battle Force (CO: Richardson) #####
+	fleet = {
+		name = "Battle Force"			
+		naval_base = 11670 # Odessa
+		### Destroyer Flotilla 1 ###				
+		task_force = {					
+			name = "Perviy Odesskiy Flot"				
+			location = 11670 # Odessa
+			ship = { name = "OCF Shestidesyatiy" definition = light_cruiser start_experience_factor = 0.25 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = ODE version_name = "Odessa Class" } } }				
+			### Destroyer Squadron 1 ###				
+			# 1st Destroyer Division				
+			ship = { name = "OCF Tsarev" definition = destroyer start_experience_factor = 0.25 equipment = { ship_hull_light_1 = { amount = 1 owner = ODE version_name = "Berzula Class" } } }
+			ship = { name = "OCF Lichev" definition = destroyer start_experience_factor = 0.25 equipment = { ship_hull_light_1 = { amount = 1 owner = ODE version_name = "Berzula Class" } } }
+			ship = { name = "OCF Illarion" definition = destroyer start_experience_factor = 0.25 equipment = { ship_hull_light_1 = { amount = 1 owner = ODE version_name = "Berzula Class" } } }
+			ship = { name = "OCF Oleksiy" definition = destroyer start_experience_factor = 0.25 equipment = { ship_hull_light_1 = { amount = 1 owner = ODE version_name = "Berzula Class" } } }				
+			ship = { name = "OCF Ivan" definition = destroyer start_experience_factor = 0.25 equipment = { ship_hull_light_1 = { amount = 1 owner = ODE version_name = "Berzula Class" } } }
+		}		
+	}
+}
+
+#####################

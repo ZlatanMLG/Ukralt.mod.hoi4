@@ -3,22 +3,41 @@ state={
 	id=227
 	name="STATE_227"
 	manpower = 3767336
-	
+	resources={
+		steel=3
+		aluminium=11 # was: 12
+	}
 	state_category = city
 
 	history={
-		owner = DON
+		owner = DOZ
 		buildings = {
-			infrastructure = 5
+			infrastructure = 3
+			air_base = 1
+			industrial_complex = 3
+			arms_factory = 1
+			6420 = {
+				naval_base = 2
+			}
 		}
 		victory_points = {
-			6474 10
+			6474 20
 		}
-		add_core_of = DON
-		add_core_of = UKR
+		victory_points = {
+			6420 10
+		}
+		victory_points = {
+			3466 5
+		}
+		victory_points = {
+			502 5
+		}
+		add_core_of = DOZ
 	}
 
 	provinces={
-		502 3421 3449 3466 3479 3491 6420 6474 6493 6776 
+		486 502 3421 3449 3466 3479 3491 6420 6474 6493 6776 
 	}
+
+	local_supplies=10.0 
 }

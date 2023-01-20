@@ -1,0 +1,21 @@
+﻿l_english:
+ pavlograd_border_conflict.1.t:0 "Donezk is preparing attack on Pavlograd"
+ pavlograd_border_conflict.1.d:0 "In few weeks, Donezk will start the battle for the Pavlograd."
+ pavlograd_border_conflict.1.a:0 "We will destroy those wild animals!"
+ pavlograd_border_conflict.1.b:0 "Prepare the defences immediately"
+
+ pavlograd_border_conflict.2.t:0 "Anarchists have lost the battle"
+ pavlograd_border_conflict.2.d:0 "Today, donezk troops successfully infiltrated Pavlograd region and seized control of the main transport routes."
+ pavlograd_border_conflict.2.a:0 "Annex new state!"
+ pavlograd_border_conflict.2.b:0 "Take the military expirience adn compensation."
+
+ pavlograd_border_conflict.3.t:0 "Anarchists have won the battle"
+ pavlograd_border_conflict.3.d:0 "Donezk risky plan failed, and now the possibility of border change is gone"
+ pavlograd_border_conflict.3.a:0 "Take the military expirience"
+ pavlograd_border_conflict.3.b:0 "Escalate the conflict"
+
+
+ pavlograd_border_conflict.4.t:0 "Stalemate"
+ pavlograd_border_conflict.4.d:0 "The battle resulted in stalemate, but this is a good  expirience"
+ pavlograd_border_conflict.4.a:0 "Bloody Anarchists..."
+ pavlograd_border_conflict.4.b:0 "Those Eastern bastards..."

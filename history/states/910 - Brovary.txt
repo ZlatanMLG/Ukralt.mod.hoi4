@@ -1,0 +1,31 @@
+state = {
+	id = 910
+	name = "STATE_910"
+	manpower = 354380
+	
+	state_category = rural
+
+	history = {
+		owner = UKA
+		victory_points = {
+			11557 5
+		}
+		buildings = {
+		
+			infrastructure = 2
+			
+		}
+		add_core_of = UKA
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 1
+			}
+		}
+	}
+
+	provinces = {
+		489 582 9543 11530 11557 
+	}
+
+	local_supplies = 2.0 
+}
