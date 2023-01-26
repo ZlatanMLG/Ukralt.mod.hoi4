@@ -61,6 +61,15 @@ if = {
 	}
 }
 
+add_ideas = {
+	DOZ_west_concessions
+	DOZ_east_concessions
+	DOZ_crimean_pirates
+	DOZ_anarchist_raids
+	DOZ_foreign_investors
+	DOZ_surveillanced_army
+}
+
 set_popularities = {
 	democratic = 25
 	fascism = 20

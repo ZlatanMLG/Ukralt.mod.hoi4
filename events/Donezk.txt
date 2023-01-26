@@ -130,3 +130,175 @@ country_event = {
 		army_experience = 50
 	}
 }
+
+
+add_namespace = pavlograd_regulate_borders
+country_event = { 
+	id = pavlograd_regulate_borders.1
+	title = pavlograd_regulate_borders.1.t
+	desc = pavlograd_regulate_borders.1.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_regulate_borders.1.a
+		ai_chance = { factor = 80 }
+		trigger = {
+			original_tag = DOZ
+		}
+		SOV = {country_event = { id = pavlograd_regulate_borders.2 }}
+	}
+	option = {
+		name = pavlograd_regulate_borders.1.b
+		ai_chance = { factor = 20 }
+		trigger = {
+			original_tag = DOZ
+		}
+		SOV = {country_event = { id = pavlograd_regulate_borders.3 }}
+	}
+}
+
+country_event = { 
+	id = pavlograd_regulate_borders.2
+	title = pavlograd_regulate_borders.2.t
+	desc = pavlograd_regulate_borders.2.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_regulate_borders.2.a
+		ai_chance = { factor = 70 }
+		DOZ = {
+			set_country_flag = border_change_1
+			country_event = { id = pavlograd_regulate_borders.4 }
+		}
+	}
+	option = {
+		name = pavlograd_regulate_borders.2.b
+		ai_chance = { factor = 30 }
+		DOZ = {
+			set_country_flag = border_failed_change_1
+			country_event = { id = pavlograd_regulate_borders.5 }
+		}
+	}
+}
+
+country_event = { 
+	id = pavlograd_regulate_borders.3
+	title = pavlograd_regulate_borders.3.t
+	desc = pavlograd_regulate_borders.3.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_regulate_borders.3.a
+		ai_chance = { factor = 40 }
+		DOZ = {
+			set_country_flag = border_change_2
+			country_event = { id = pavlograd_regulate_borders.4 }
+		}
+	}
+	option = {
+		name = pavlograd_regulate_borders.3.b
+		ai_chance = { factor = 60 }
+		DOZ = {
+			set_country_flag = border_failed_change_2
+			country_event = { id = pavlograd_regulate_borders.5 }
+		}
+	}
+}
+
+country_event = { 
+	id = pavlograd_regulate_borders.4
+	title = pavlograd_regulate_borders.4.t
+	desc = pavlograd_regulate_borders.4.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_regulate_borders.4.a
+		trigger = {
+			original_tag = DOZ
+			has_country_flag = border_change_1
+		}
+		DOZ = {
+			add_stability = 0.03
+			transfer_state = 218
+		}
+		218 = {
+			add_resource = {
+				type = steel
+				amount = 11
+			}
+		}
+		give_resource_rights = { receiver = SOV state = 218 }
+		give_resource_rights = { receiver = SOV state = 228 }
+	}
+	option = {
+		name = pavlograd_regulate_borders.4.b
+		trigger = {
+			original_tag = DOZ
+			has_country_flag = border_change_2
+		}
+		DOZ = {
+			transfer_state = 218
+			transfer_state = 245
+			add_stability = 0.06
+		}
+		218 = {
+			add_resource = {
+				type = steel
+				amount = 11
+			}
+		}
+		245 = {
+			add_resource = {
+				type = steel
+				amount = 8
+			}
+			add_resource = {
+				type = oil
+				amount = 3
+			}
+		}
+		give_resource_rights = { receiver = SOV state = 218 }
+		give_resource_rights = { receiver = SOV state = 228 }
+		give_resource_rights = { receiver = SOV state = 245 }
+	}
+}
+
+country_event = { 
+	id = pavlograd_regulate_borders.5
+	title = pavlograd_regulate_borders.5.t
+	desc = pavlograd_regulate_borders.5.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = pavlograd_regulate_borders.5.a
+		trigger = {
+			original_tag = DOZ
+			has_country_flag = border_failed_change_1
+		}
+		DOZ = {
+			add_stability = -0.04
+			add_war_support = 0.03
+		}
+	}
+	option = {
+		name = pavlograd_regulate_borders.5.b
+		trigger = {
+			original_tag = DOZ
+			has_country_flag = border_failed_change_2
+		}
+		DOZ = {
+			add_stability = -0.08
+			add_war_support = 0.06
+		}
+	}
+}

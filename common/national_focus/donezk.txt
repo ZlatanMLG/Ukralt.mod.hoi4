@@ -46,6 +46,8 @@ focus_tree = {
 		}
 	}
 
+	# POLITICAL FOCUSES
+
 	focus = {
 		id = doz_pavlograd_border_conflict
 		icon = GFX_goal_continuous_non_factory_construct
@@ -74,6 +76,37 @@ focus_tree = {
 			set_country_flag = unlock_border_war
 			ANA = {country_event = { id = pavlograd_border_conflict.1 }}
 			DOZ = {country_event = { id = pavlograd_border_conflict.1 }}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_border_regulation_treaty
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 12
+		y = 1
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = {}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			DOZ = {country_event = { id = pavlograd_regulate_borders.1 }}
 		}
 
 		ai_will_do = {

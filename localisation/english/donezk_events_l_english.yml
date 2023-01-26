@@ -19,3 +19,31 @@
  pavlograd_border_conflict.4.d:0 "The battle resulted in stalemate, but this is a good  expirience"
  pavlograd_border_conflict.4.a:0 "Bloody Anarchists..."
  pavlograd_border_conflict.4.b:0 "Those Eastern bastards..."
+
+
+
+ pavlograd_regulate_borders.1.t:0 "Border regulation Treaty with Soviets"
+ pavlograd_regulate_borders.1.d:0 "Today our officials presented us a plan of integrating new territories, currently under control of Reds. The plan is simple - we get the control of wished state, but in exchange offer resouce exploration program and rights to them as well. We have two propositions - moderate one, that includes only Rostov region, and expanded, with Mikhailovka included. Of course, the chances of Soviet`s accepting the offer is lesser in the last one."
+ pavlograd_regulate_borders.1.a:0 "Propose Rostov Programm!"
+ pavlograd_regulate_borders.1.b:0 "Excavation of all territories west of the Don River"
+
+ pavlograd_regulate_borders.2.t:0 "Border regulation Treaty with Donbass Region"
+ pavlograd_regulate_borders.2.d:0 "Today, Donbass officials proposed us territories exchange for resouce rights and deep excavation programm."
+ pavlograd_regulate_borders.2.a:0 "Give them the Rostov Region, we get Luganske on top of that."
+ pavlograd_regulate_borders.2.b:0 "Are they stupid?"
+
+ pavlograd_regulate_borders.3.t:0 "Self-confidant Border regulation Treaty with Soviets"
+ pavlograd_regulate_borders.3.d:0 "Today, Donbass officials proposed us wide territories exchange for resouce rights and deep excavation programm."
+ pavlograd_regulate_borders.3.a:0 "Include Mykhailovka region as well. We get a huge benefit of it."
+ pavlograd_regulate_borders.3.b:0 "Ignore those rats."
+
+
+ pavlograd_regulate_borders.4.t:0 "The Soviets agreed!"
+ pavlograd_regulate_borders.4.d:0 "Our offer was accepted!"
+ pavlograd_regulate_borders.4.a:0 "Rostov is ours!"
+ pavlograd_regulate_borders.4.b:0 "Unexpected, but success!"
+
+ pavlograd_regulate_borders.5.t:0 "Soviets ignored our offer."
+ pavlograd_regulate_borders.5.d:0 "We didn`t get any reply from their officials, guess, they don`t take us seriously at all."
+ pavlograd_regulate_borders.5.a:0 "Bloody hell"
+ pavlograd_regulate_borders.5.b:0 "We were naive and ignorant..."

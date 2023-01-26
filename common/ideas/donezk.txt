@@ -10,6 +10,243 @@ ideas = {
 ##    ## ##     ##    ##    ####  #######  ##    ## ##     ## ########     ######  ##        #### ##     ## ####    ##     ######  
 
 	country = { #DLC
+
+		DOZ_west_concessions = {
+			picture = generic_coastal_navy
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				industry = 0.07
+			}
+
+			modifier = {
+				trade_opinion_factor = 0.1
+				opinion_gain_monthly_factor = 0.02
+				consumer_goods_factor = 0.12
+				stability_factor = -0.05
+				political_power_factor = -0.1
+				min_export = 0.2
+				research_speed_factor = 0.08
+				production_speed_buildings_factor = 0.07
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_infrastructure_factor = 0.1
+				production_speed_arms_factory_factor = -0.2
+				production_speed_dockyard_factor = -0.15
+
+			}
+
+		}
+
+		DOZ_east_concessions = {
+			picture = generic_build_infrastructure
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				synth_resources = 0.15
+				armor = -0.10
+			}
+
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = -0.03
+				political_power_factor = -0.05
+				min_export = 0.1
+				research_speed_factor = -0.03
+				production_speed_rail_way_factor = 0.15
+				production_speed_supply_node_factor = 0.2
+				production_speed_arms_factory_factor = -0.15
+				local_resources_factor = 0.12
+
+			}
+		}
+
+		DOZ_crimean_pirates = {
+			picture = hol_the_foundations_of_defense
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				naval_equipment = -0.1
+				naval_doctrine = -0.1
+			}
+
+			targeted_modifier = {
+				tag = CMI
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+			}
+
+			modifier = {
+				stability_factor = -0.05
+				min_export = -0.1
+				local_resources_factor = -0.03
+				war_support_factor = 0.03
+				industrial_capacity_factory = -0.06
+				production_factory_efficiency_gain_factor = -0.05
+				production_factory_max_efficiency_factor = -0.12
+			}
+		}
+
+		DOZ_anarchist_raids = {
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				
+			}
+
+			targeted_modifier = {
+				
+			}
+
+			modifier = {
+				stability_factor = -0.03
+				war_support_factor = 0.04
+				production_factory_max_efficiency_factor = -0.05
+				conscription_factor = -0.01
+				local_resources_factor = -0.05
+				production_lack_of_resource_penalty_factor = 0.1
+			}
+		}
+
+		DOZ_foreign_investors = {
+			picture = man_five_year_plan_industry
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				
+			}
+
+			targeted_modifier = {
+				
+			}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.15
+				local_resources_factor = 0.15
+				production_speed_buildings_factor = 0.2
+				production_speed_industrial_complex_factor = 0.1 
+				production_speed_naval_base_factor = 0.2
+				consumer_goods_factor = -0.04
+				production_speed_infrastructure_factor = 0.15
+			}
+		}
+
+		DOZ_surveillanced_army = {
+			picture = SPR_subvert_soviet_control
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				artillery = -0.1
+				armor = -0.2
+				infantry_equipment = -0.2
+				light_air = -0.1
+				medium_air = -0.1
+				heavy_air = -0.1
+			}
+
+			targeted_modifier = {
+				
+			}
+
+			modifier = {
+				army_morale_factor = 0.05
+				army_org_factor = 0.1
+				conscription = -0.005
+				experience_gain_army = 0.1
+			}
+		}
+
 		DOZ_three_year_plan = {
 			picture = generic_coastal_navy
 
