@@ -1,4 +1,4 @@
-# Ukralt.mod.hoi4
+# Ukrainian Alterned History Mod HOI4
 
 Imagine your hoi4 experience looking like this:
 
