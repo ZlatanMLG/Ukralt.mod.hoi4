@@ -1,6 +1,45 @@
 
 #ELECTION DECISION
 
+DOZ_krivbas_idea_category = { 
+
+	DOZ_core_krivbas  = { 
+
+		icon = generic_form_nation
+
+		allowed = { 
+			original_tag = DOZ
+		}
+
+		available = {
+			has_full_control_of_state = 227
+			has_full_control_of_state = 221
+			has_full_control_of_state = 226
+		}
+
+		visible = {
+			NOT = { has_country_flag = DOZ_krivbas_achieved }
+		}
+
+		cancel_if_not_visible = no
+
+		complete_effect = {
+			hidden_effect = { 
+				set_country_flag = DOZ_krivbas_achieved
+				#news_event = { id = EST_events.3 hours = 6 }
+			}
+			DOZ = {
+				add_state_core = 225
+				add_state_core = 221
+				add_state_core = 226
+				add_state_core = 909			
+			}
+
+			set_cosmetic_tag = KRY
+		}
+	}
+}
+
 DOZ_border_war_category = { 
 	DOZ_start_border_war  = { # start
 
@@ -31,12 +70,7 @@ DOZ_border_war_category = {
 
 		cancel_if_not_visible = no
 
-		highlight_states = {
-			highlight_state_targets = {
-				state = 200
-				state = 909
-			} 
-		}
+		
 
 		ai_will_do = {
 			base = 10

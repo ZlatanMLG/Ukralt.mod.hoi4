@@ -85,7 +85,7 @@ set_politics = {
 }
 
 create_country_leader = {
-	name = "Volodymyr Vynnychenko"
+	name = "Humble"
 	desc = ""
 	picture = "Vinnichenko.dds"
 	expire = "1953.3.1"

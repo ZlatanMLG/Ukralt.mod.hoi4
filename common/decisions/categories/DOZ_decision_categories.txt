@@ -6,9 +6,41 @@ DOZ_border_war_category = {
 	priority = 9
 	icon = generic_crisis
 
-	picture = GFX_decision_cat_picture_1936_election
+	picture = GFX_decision_category_ger_mefo_bills
 
 	allowed = {
 		tag = DOZ
 	}
+	highlight_states = {
+		highlight_state_targets = {
+			state = 200
+			state = 909
+		} 
+	}
+}
+
+DOZ_krivbas_idea_category = {
+
+	priority = 4
+
+	icon = generic_formable_nations
+
+	picture = GFX_decision_cat_generic_kryvbas
+
+	allowed = {
+		tag = DOZ
+	}
+
+	highlight_states = {
+		    highlight_state_targets = {
+		        state = 221
+		        state = 225
+		        state = 226
+		        state = 909
+		        state = 200
+		        state = 227
+		        state = 228
+		    }
+		    highlight_color_while_active = 2
+		}
 }
