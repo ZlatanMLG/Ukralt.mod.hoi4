@@ -302,3 +302,187 @@ country_event = {
 		}
 	}
 }
+
+add_namespace = doz_political
+country_event = { 
+	id = doz_political.1
+	title = doz_political.1.t
+	desc = doz_political.1.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = doz_political.1.a
+		ai_chance = { factor = 80 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {
+			set_country_flag = unlock_independent_path
+			add_war_support = 0.05
+			add_stability = 0.02
+		}
+		custom_effect_tooltip = 1_DOZ_tt
+	}
+	option = {
+		name = doz_political.1.b
+		ai_chance = { factor = 20 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {country_event = { id = doz_political.2 }}
+		add_stability = 0.1
+		custom_effect_tooltip = 2_DOZ_tt
+	}
+}
+
+country_event = { 
+	id = doz_political.2
+	title = doz_political.2.t
+	desc = doz_political.2.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = doz_political.2.a
+		ai_chance = { factor = 65 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {
+			set_country_flag = unlock_west_path
+		}
+		custom_effect_tooltip = 3_DOZ_tt
+	}
+	option = {
+		name = doz_political.2.b
+		ai_chance = { factor = 35 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {
+			set_country_flag = unlock_east_path
+		}
+		custom_effect_tooltip = 4_DOZ_tt
+	}
+}
+
+country_event = { 
+	id = doz_political.3
+	title = doz_political.3.t
+	desc = doz_political.3.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = doz_political.3.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {
+			country_event = { id = doz_political.4 }
+		}
+	}
+}
+
+country_event = { 
+	id = doz_political.4
+	title = doz_political.4.t
+	desc = doz_political.4.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = doz_political.4.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {
+			country_event = { id = doz_political.1 }
+		}
+	}
+}
+
+#Regulate Concessions
+country_event = { 
+	id = doz_political.5
+	title = doz_political.5.t
+	desc = doz_political.5.d
+	picture = GFX_report_event_japanese_army_parade
+
+	is_triggered_only = yes
+
+	option = {
+		name = doz_political.5.a
+		ai_chance = { factor = 30 }
+		trigger = {
+			original_tag = DOZ
+			has_country_flag = unlock_east_path
+		}
+		DOZ = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.2
+			}
+			remove_ideas = DOZ_east_concessions
+			add_stability = 0.05
+		}
+		SOV = {
+			add_opinion_modifier = { 
+				target = DOZ
+				modifier = small_increase
+			}
+		}
+	}
+	option = {
+		name = doz_political.5.b
+		ai_chance = { factor = 30 }
+		trigger = {
+			original_tag = DOZ
+			has_country_flag = unlock_independent_path
+		}
+		DOZ = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			remove_ideas = DOZ_east_concessions
+		}
+		SOV = {
+			add_opinion_modifier = { 
+				target = DOZ
+				modifier = large_decrease
+			}
+			add_state_claim = 228
+		}
+	}
+	option = {
+		name = doz_political.5.c
+		ai_chance = { factor = 40 }
+		trigger = {
+			original_tag = DOZ
+		}
+		DOZ = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			swap_ideas = { 
+				remove_idea = DOZ_east_concessions
+				add_idea = DOZ_small_east_concessions
+			}
+		}
+		SOV = {
+			add_opinion_modifier = { 
+				target = DOZ
+				modifier = small_decrease
+			}
+		}
+	}
+}

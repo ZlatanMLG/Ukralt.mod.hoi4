@@ -11,6 +11,65 @@ ideas = {
 
 	country = { #DLC
 
+		DOZ_political_instability = {
+			picture = SWI_spirit_of_helvetia_aggressive_war
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+			}
+
+			modifier = {
+				stability_factor = -0.15
+				political_power_factor = -0.15
+				production_speed_buildings_factor = -0.05
+			}
+
+		}
+
+		DOZ_advanced_resource_extraction = {
+			picture = standard_oil_california
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				synth_resources = 0.2
+			}
+
+			modifier = {
+				local_resources_factor = 0.25
+			}
+
+		}
+
 		DOZ_west_concessions = {
 			picture = generic_coastal_navy
 
@@ -77,7 +136,7 @@ ideas = {
 			}
 
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.04
 				stability_factor = -0.03
 				political_power_factor = -0.05
 				min_export = 0.1
@@ -87,6 +146,38 @@ ideas = {
 				production_speed_arms_factory_factor = -0.15
 				local_resources_factor = 0.12
 
+			}
+		}
+
+		DOZ_small_east_concessions = {
+			picture = generic_build_infrastructure
+
+			allowed = { 
+				original_tag = DOZ
+			}
+
+			available = {
+			}
+
+			cancel = {
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			research_bonus = {
+				synth_resources = 0.1
+				armor = -0.05
+			}
+
+			modifier = {
+				political_power_factor = -0.07
+				min_export = 0.05
+				production_speed_rail_way_factor = 0.1
+				local_resources_factor = 0.05
 			}
 		}
 
@@ -294,10 +385,11 @@ ideas = {
 			modifier = {
 				production_speed_buildings_factor = 0.05
 				production_speed_industrial_complex_factor = 0.1
-				industrial_capacity_factory = 0.15
+				industrial_capacity_factory = 0.1
 				production_factory_efficiency_gain_factor = 0.05
 				production_factory_max_efficiency_factor = 0.1
-				conscription_factor = -0.15
+				conscription_factor = -0.05
+				global_building_slots = 0.2
 
 			}
 		}

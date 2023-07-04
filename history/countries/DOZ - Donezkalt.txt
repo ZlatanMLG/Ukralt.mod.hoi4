@@ -68,6 +68,8 @@ add_ideas = {
 	DOZ_anarchist_raids
 	DOZ_foreign_investors
 	DOZ_surveillanced_army
+	DOZ_political_instability
+	DOZ_advanced_resource_extraction
 }
 
 set_popularities = {

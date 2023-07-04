@@ -49,12 +49,138 @@ focus_tree = {
 	# POLITICAL FOCUSES
 
 	focus = {
+		id = doz_history_so_far
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 13
+		y = 0
+		relative_position_id = doz_industrialize
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = {}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			custom_effect_tooltip = 5_DOZ_tt
+			add_political_power = 150
+			DOZ = {
+				country_event = { id = doz_political.3 }
+			}
+		}
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_independence_path
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -6
+		y = 1
+		relative_position_id = doz_history_so_far
+
+		available = { 
+			is_subject = no 
+			has_country_flag = unlock_independent_path
+		}
+		bypass = {}
+
+		cost = 5
+
+		prerequisite = { focus = doz_history_so_far }
+		prerequisite = { focus = doz_pavlograd_border_conflict }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 150
+		}
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_west_path
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 6
+		y = 1
+		relative_position_id = doz_history_so_far
+
+		available = { 
+			is_subject = no 
+			has_country_flag = unlock_west_path
+		}
+		bypass = {}
+
+		cost = 5
+
+		prerequisite = {
+			focus = doz_history_so_far
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 150
+		}
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_east_path
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = 0
+		y = 1
+		relative_position_id = doz_history_so_far
+
+		available = { 
+			is_subject = no 
+			has_country_flag = unlock_east_path
+		}
+		bypass = {}
+
+		cost = 5
+
+		prerequisite = { focus = doz_history_so_far }
+		prerequisite = { focus = doz_pavlograd_border_conflict }
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 150
+		}
+		ai_will_do = {
+		}
+	}
+
+	focus = {
 		id = doz_pavlograd_border_conflict
 		icon = GFX_goal_continuous_non_factory_construct
 		
-		x = 10
-		y = 1
-		relative_position_id = doz_industrialize
+		x = -3
+		y = 0
+		relative_position_id = doz_history_so_far
 
 		available = {
 			is_subject = no
@@ -86,9 +212,9 @@ focus_tree = {
 		id = doz_border_regulation_treaty
 		icon = GFX_goal_continuous_non_factory_construct
 		
-		x = 12
-		y = 1
-		relative_position_id = doz_industrialize
+		x = -3
+		y = 2
+		relative_position_id = doz_history_so_far
 
 		available = {
 			is_subject = no
@@ -98,7 +224,10 @@ focus_tree = {
 		}
 
 		cost = 5
-		prerequisite = {}
+		prerequisite = { 
+			focus = doz_independence_path
+			focus = doz_east_path
+		}
 		
 
 		cancel_if_invalid = yes
@@ -107,6 +236,74 @@ focus_tree = {
 
 		completion_reward = {
 			DOZ = {country_event = { id = pavlograd_regulate_borders.1 }}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_regulate_soviet_concessions
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -3
+		y = 3
+		relative_position_id = doz_history_so_far
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { 
+			focus = doz_independence_path
+			focus = doz_east_path
+		}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			DOZ = {country_event = { id = doz_political.5 }}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	focus = {
+		id = doz_request_more_authonomy_from_west
+		icon = GFX_goal_continuous_non_factory_construct
+		
+		x = -6
+		y = 3
+		relative_position_id = doz_history_so_far
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+		}
+
+		cost = 5
+		prerequisite = { 
+			focus = doz_independence_path
+		}
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = 6_DOZ_tt
+			add_political_power = 100
 		}
 
 		ai_will_do = {
@@ -576,7 +773,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_stability = -0.2
+			add_stability = -0.1
 			add_ideas = DOZ_workers_society
 		}
 
